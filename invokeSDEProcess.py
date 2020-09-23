@@ -6,20 +6,25 @@ import time
 import os
 import signal
 import datetime
+import subprocess
+import time
+import os
+import signal
+import datetime
 def invokeSDEProcess(appInstance, fileName):
-    print('start ', appInstance['name'], i)
-    print(fileName)
-    startPssCmd = '(Start-Process '+appInstance['name']+' -passthru).ID'
+    iPid = 0
+    print('start pss ', appInstance['name'])
+    print('trace pss file @', fileName)
+    startPssCmd = '(Start-Process \"'+appInstance['path'] + appInstance['name']+'\" -passthru).ID'
     cmdRes = subprocess.Popen(["powershell",startPssCmd], stdout=subprocess.PIPE)
     pssPid = str(cmdRes.communicate()[0]).replace('\\r\\n\'','').replace('b\'','')
     iPid = int(pssPid)
-    sdePssCmd = "C:\\Users\\balajima\\Desktop\\intelSDE\\sde-external-8.50.0-2020-03-26-win\\sde -attach-pid "+ pssPid +" -mix -omix "+ fileName
+    sdePssCmd = "C:\\intelSDE\\sde-external-8.50.0-2020-03-26-win\\sde -attach-pid "+ pssPid +" -mix -omix "+ fileName
     sdeCmdRes = subprocess.Popen(sdePssCmd, stdout=subprocess.PIPE)
     print(iPid, ' pss starts to sleep at ', datetime.datetime.now().strftime("%H-%M"))
-    time.sleep(int(appInstance['sleeptime']))
+    time.sleep(int(appInstance['sample-sleeptime']))
     print(iPid, ' pss ctrl return')
-    # if pss exists return pid else 0
-    return iPid;
+    return iPid
 
 # create opcode list from trace log files
 def opcodesGeneration(fileName):
@@ -32,8 +37,8 @@ def opcodesGeneration(fileName):
     return opcodeList
 
 # Create unique Dictionary of opcodes
-def writeOpcodeDictionary(opcodeList):
-    opcodeDictionaryFile = 'opcodeDictionary.txt'
+def writeOpcodeDictionary(opcodeList, opcodeDictionaryFile):
+    dictRes = False
     with open(opcodeDictionaryFile, "r+") as fileHandle:
         dictionaryList = fileHandle.read()
         for opcodeStr in opcodeList:
@@ -41,71 +46,105 @@ def writeOpcodeDictionary(opcodeList):
                 continue
             else:
                 fileHandle.write(opcodeStr+',')
-                print('wrote ',opcodeStr)
+                dictRes = True
     fileHandle.close()
-    return opcodeDictionaryFile
+    return dictRes
 
-#Fillup the col names in CSV file
-def fillColNames(dictFile, csvFile):
+def fillColNames(opcodeDictFile, csvFile):
+    fillCollRes = False
     import pandas as pdHandle
-    fileLines =pdHandle.read_csv(opcodeDictFile, sep=',')
-    fileLines.rename(columns={'Unnamed: 0':'Pss ID'}, inplace = True) #col 1 placeholder
-    fileLines.drop(fileLines.columns[len(fileLines.columns)-1], axis=1, inplace=True) #cleanup
-    print(fileLines)
-    fileLines.to_csv(csvFile,index=False)
-    return 1;
+    try:
+        fileLines =pdHandle.read_csv(opcodeDictFile, sep=',')
+        fileLines.rename(columns={'Unnamed: 0':'File Name'}, inplace = True) #col 1 placeholder
+        fileLines.drop(fileLines.columns[len(fileLines.columns)-1], axis=1, inplace=True) #cleanup
+        #print(fileLines)
+        fileLines.to_csv(csvFile,index=False)
+        fillCollRes = True
+    except IOError:
+                print('Error writing: Please try again', csvFile)
+                return False
+    return True
 
 #Read log files for opcode occurence
 import glob
 import csv
 import pandas as pdHandle
-def recordOpcodeOccurence(csvFile, pid):
-    # for all files starting with logOpcode_ read the files reverse, have opcode list,
+def recordOpcodeOccurence(csvFile):
+    # for all files starting with log_ read the files reverse, have opcode list,
     # open csv, add row with pid as col 1, append values under proper col, fill others with 0
-    csvReadHandle = pdHandle.read_csv(csvFile)
-    for fileName in glob.glob('logOpcode_*'):
-        #construct a dataframe with pid as row
-        opcodeList = [0] * len(csvReadHandle.columns)
-        opcodeList[0] = fileName
-        for line in reversed(list(open(fileName))):
-            if(not('#' in line) and not('*' in line)):
-                #print(str(line.split(' ')[0])) 
-                for col in csvReadHandle.columns:
-                    #for the same row, look for col name matching to line[0] and write line[1]
-                    if(str(line.split(' ')[0]) == col):
-                        opcodeList[int(csvReadHandle.columns.get_loc(str(line.split(' ')[0])))] = str(line.split(' ',1)[1]).replace(' ','').replace('\n','')
-            if("opcode" in line):
-                break 
-        print(opcodeList)
-        #push to csv
-        with open(csvFile, "a") as fp:
-            wr = csv.writer(fp,dialect='excel')
-            wr.writerow(opcodeList)
-    return 1;
-recordOpcodeOccurence('opcodeFrequency.csv', 1)
+    try:
+        csvReadHandle = pdHandle.read_csv(csvFile)
+        #replace all empty cells with 0
+        csvReadHandle.fillna(0,inplace=True)
+        for fileName in glob.glob('log_*'):
+            #construct a dataframe with filename as row
+            opcodeList = [0] * len(csvReadHandle.columns)
+            opcodeList[0] = fileName
+            for line in reversed(list(open(fileName,'r'))):
+                if(not('#' in line) and not('*' in line)):
+                    for col in csvReadHandle.columns:
+                        #for the same row, look for col name matching to line[0] and write line[1]
+                        if(str(line.split(' ')[0]) == col):
+                            opcodeList[int(csvReadHandle.columns.get_loc(str(line.split(' ')[0])))] = str(line.split(' ',1)[1]).replace(' ','').replace('\n','')
+                if('opcode' in line):
+                    break 
+            #print(opcodeList)
+            #push to csv
+            with open(csvFile, 'a', newline='') as fileHandle:
+                writeRow = csv.writer(fileHandle,dialect='excel')
+                writeRow.writerow(opcodeList)
+                fileHandle.close()
+        return True
+    except IOError:
+        print('Error: Close the Excel file and try again!')
+    return False
 
 
 appList = {
-    1:{'name': 'notepad.exe', 'repeat':'1', 'sleeptime':'30'},
-    2:{'name': 'cmd.exe', 'repeat':'1', 'sleeptime':'30'}
+    1:{'name': 'apache-tomcat-9.0.38', 'path':'C:\\Users\\14632\\Downloads\\','repeat':'1', 'sample-sleeptime':'20', 'log-sleeptime':'60'},
+    #2:{'name': 'chrome.exe', 'path':'', 'repeat':'1', 'sample-sleeptime':'45', 'log-sleeptime':'10'},
+    #3:{'name': 'notepad.exe', 'path':'', 'repeat':'1', 'sample-sleeptime':'15', 'log-sleeptime':'30'},
 }
+dictFile = 'opcodeDictionary.txt'
+csvFile = 'opcodeFrequency.csv'
+from os import path
 for app, appInfo in appList.items():
-    i = 0
-    while i < int(appInfo['repeat']):
-        fileName = 'logOpcode_' + datetime.datetime.now().strftime("%m-%d-%Y-%H-%M-%S") + '.txt'
+    i = 1
+    while i <= int(appInfo['repeat']):
+        fileName = 'log_' +appInfo['name'].replace('.exe','')+'_'+ datetime.datetime.now().strftime("%m-%d-%Y-%H-%M-%S") + '.txt'
         resCode = invokeSDEProcess(appInfo, fileName)
-        if(resCode != 0):
+        if(resCode != 0) and (path.exists(fileName)):
             #rescode = pssid and kill the process
-            print('Pss kill at ', datetime.datetime.now().strftime("%H-%M"))
+            print(resCode, 'pss kill at ', datetime.datetime.now().strftime("%H-%M"))
             killCmd =  "get-process -Id "+str(resCode)+ "| % { $_.CloseMainWindow() }"
             #killCmdRes = subprocess.Popen("taskkil /F /PID "+resCode, stdout=subprocess.PIPE)
             killCmdRes = subprocess.Popen(["powershell",killCmd], stdout=subprocess.PIPE)
-            time.sleep(30)
+            #if pss still exists kill command with Pid
+            print('Pss sleep to complete sampling')
+            time.sleep(int(appInfo['log-sleeptime']))
             opcodeList = opcodesGeneration(fileName)
-            print(opcodeList)
-            dictFile = writeOpcodeDictionary(opcodeList)
+            if len(opcodeList) > 0:
+                try:
+                    dictRes = writeOpcodeDictionary(opcodeList, dictFile)
+                    print('New Dictionary Entries' if dictRes else 'No new Dictionary Entries')
+                except IOError:
+                    print('Error: Check if file exists and try again!', dictFile)
+                    break
+            else:
+                print('Incomplete SDE log: No opcodes generated for', fileName)
+                os.rename(fileName,fileName.replace('log','logcrash'))
+                print('Find missing log info from files logcrash*_')
+                break
         else:
-            #Handle errors TODO
+            print('Error: No Trace info for', fileName)
+
             break
         i +=1
-    fillColNames(dictFile, 'opcodeFrequency.csv')
+  
+dictFile = 'opcodeDictionary.txt'
+csvFile = 'opcodeFrequency.csv'
+fillColRes = fillColNames(dictFile, csvFile)
+print('Fill CSV Column Names sucess' if fillColRes else 'Fill CSV Column Names Fail')
+# Run only once after generating all log files to record Opcode counts for each
+csvWriteRes = recordOpcodeOccurence(csvFile)
+print('CSV write sucess' if csvWriteRes else 'CSV Write Fail')
