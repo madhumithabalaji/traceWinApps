@@ -19,7 +19,7 @@ def invokeSDEProcess(appInstance, fileName):
     cmdRes = subprocess.Popen(["powershell",startPssCmd], stdout=subprocess.PIPE)
     pssPid = str(cmdRes.communicate()[0]).replace('\\r\\n\'','').replace('b\'','')
     iPid = int(pssPid)
-    sdePssCmd = "C:\\intelSDE\\sde-external-8.50.0-2020-03-26-win\\sde -attach-pid "+ pssPid +" -mix -omix "+ fileName
+    sdePssCmd = "C:\\Users\\balajima\\Downloads\\sde-external-8.50.0-2020-03-26-win\\sde -attach-pid "+ pssPid +" -mix -omix "+ fileName
     sdeCmdRes = subprocess.Popen(sdePssCmd, stdout=subprocess.PIPE)
     print(iPid, ' pss starts to sleep at ', datetime.datetime.now().strftime("%H-%M"))
     time.sleep(int(appInstance['sample-sleeptime']))
