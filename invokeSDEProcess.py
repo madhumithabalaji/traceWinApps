@@ -101,9 +101,13 @@ def recordOpcodeOccurence(csvFile):
 
 
 appList = {
-    1:{'name': 'apache-tomcat-9.0.38', 'path':'C:\\Users\\14632\\Downloads\\','repeat':'1', 'sample-sleeptime':'20', 'log-sleeptime':'60'},
-    #2:{'name': 'chrome.exe', 'path':'', 'repeat':'1', 'sample-sleeptime':'45', 'log-sleeptime':'10'},
-    #3:{'name': 'notepad.exe', 'path':'', 'repeat':'1', 'sample-sleeptime':'15', 'log-sleeptime':'30'},
+    #1:{'name': 'choice.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\','repeat':'10', 'sample-sleeptime':'20', 'log-sleeptime':'30'},
+    #2:{'name': 'Utilman.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\','repeat':'10', 'sample-sleeptime':'50', 'log-sleeptime':'45'},
+    #3:{'name': 'DevicePairingWizard.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\','repeat':'10', 'sample-sleeptime':'50', 'log-sleeptime':'45'},
+    #4:{'name': 'cmd.exe', 'path':'', 'repeat':'1', 'sample-sleeptime':'30', 'log-sleeptime':'30'},
+    #5:{'name': 'notepad.exe', 'path':'', 'repeat':'1', 'sample-sleeptime':'15', 'log-sleeptime':'30'},
+    #6:{'name': 'fontview.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\','repeat':'10', 'sample-sleeptime':'20', 'log-sleeptime':'30'},
+    #7:{'name': 'ftp.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\','repeat':'10', 'sample-sleeptime':'20', 'log-sleeptime':'30'},
 }
 dictFile = 'opcodeDictionary.txt'
 csvFile = 'opcodeFrequency.csv'
