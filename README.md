@@ -9,3 +9,4 @@ Pre-Req:
 -Install Python 3.X version with pip
 -Install Jupyter notebook using pip
 -pip install pandas for Excel manipulation
+-pip install pynput for Keypress events
