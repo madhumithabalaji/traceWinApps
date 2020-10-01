@@ -1,24 +1,50 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+#CHANGE APPINFO
+SDEpath        = 'C:\\intelSDE\\sde-external-8.50.0-2020-03-26-win\\sde' #path where SDE command is found
+startupSleep   = 10                                                      #time given in secs for process to show up on UI
+samplingSleep  = 30                                                      #time given in secs for SDE to generate trace logs
+repeatInstance = 1                                                       #number of times each app will be started
+appList        = {                                                       #list of apps to be sampled
+                    1:{'name': 'choice.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\'},
+                    #2:{'name': 'Utilman.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\'},
+                    #3:{'name': 'DevicePairingWizard.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\'},
+                    #4:{'name': 'cmd.exe', 'path':''},
+                    #5:{'name': 'notepad.exe', 'path':''},
+                    #6:{'name': 'fontview.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\'},
+                    #7:{'name': 'ftp.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\'},
+                }           
+dictFile       = 'opcodeDictionary.txt'                                  #Dictionary with unique opcodes
+csvFile        = 'opcodeFrequency.csv'                                   #count of opcodes for each app instance in csv
+logfile        = 'logTraceWinApps.txt'                                   #Framework log info
+
 import subprocess
 import time
 import os
 import signal
 import datetime
+import glob
+import csv
+import pandas as pdHandle
+import logging
+
+global SDEpath, appList, startupSleep, samplingSleep, repeatInstance, dictFile, csvFile, logfile
+
+# Start Process, SDE attach-pid and sleep for a while
 def invokeSDEProcess(appInstance, fileName):
     iPid = 0
-    print('start pss ', appInstance['name'])
-    print('trace pss file @', fileName)
+    logging.info('Start pss %s', appInstance['name'])
+    logging.info('Trace log file created for %s: %s', appInstance['name'], fileName)
     startPssCmd = '(Start-Process \"'+appInstance['path'] + appInstance['name']+'\" -passthru).ID'
     cmdRes = subprocess.Popen(["powershell",startPssCmd], stdout=subprocess.PIPE)
     pssPid = str(cmdRes.communicate()[0]).replace('\\r\\n\'','').replace('b\'','')
     iPid = int(pssPid)
-    sdePssCmd = "C:\\Users\\balajima\\Downloads\\sde-external-8.50.0-2020-03-26-win\\sde -attach-pid "+ pssPid +" -mix -omix "+ fileName
+    sdePssCmd = "C:\\intelSDE\\sde-external-8.50.0-2020-03-26-win\\sde -attach-pid "+ pssPid +" -mix -omix "+ fileName
     sdeCmdRes = subprocess.Popen(sdePssCmd, stdout=subprocess.PIPE)
-    print(iPid, ' pss starts to sleep at ', datetime.datetime.now().strftime("%H-%M"))
-    time.sleep(int(appInstance['sample-sleeptime']))
-    print(iPid, ' pss ctrl return')
+    logging.info('%s pss starts to sleep at %s', iPid, datetime.datetime.now().strftime("%H-%M"))
+    time.sleep(startupSleep)
+    logging.info('%s pss ctrl return',iPid)
     return iPid
 
 # create opcode list from trace log files
@@ -45,6 +71,7 @@ def writeOpcodeDictionary(opcodeList, opcodeDictionaryFile):
     fileHandle.close()
     return dictRes
 
+#Fillup the col names in CSV file
 def fillColNames(opcodeDictFile, csvFile):
     fillCollRes = False
     import pandas as pdHandle
@@ -56,14 +83,11 @@ def fillColNames(opcodeDictFile, csvFile):
         fileLines.to_csv(csvFile,index=False)
         fillCollRes = True
     except IOError:
-                print('Error writing: Please try again', csvFile)
+                logging.warning('Error writing to %s:! Please try again', csvFile)
                 return False
     return True
 
 #Read log files for opcode occurence
-import glob
-import csv
-import pandas as pdHandle
 def recordOpcodeOccurence(csvFile):
     # for all files starting with log_ read the files reverse, have opcode list,
     # open csv, add row with pid as col 1, append values under proper col, fill others with 0
@@ -91,59 +115,50 @@ def recordOpcodeOccurence(csvFile):
                 fileHandle.close()
         return True
     except IOError:
-        print('Error: Close the Excel file and try again!')
+        logging.warning('Error: Close the Excel file and try again!')
     return False
 
-
-appList = {
-    #1:{'name': 'choice.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\','repeat':'10', 'sample-sleeptime':'20', 'log-sleeptime':'30'},
-    #2:{'name': 'Utilman.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\','repeat':'10', 'sample-sleeptime':'50', 'log-sleeptime':'45'},
-    #3:{'name': 'DevicePairingWizard.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\','repeat':'10', 'sample-sleeptime':'50', 'log-sleeptime':'45'},
-    #4:{'name': 'cmd.exe', 'path':'', 'repeat':'1', 'sample-sleeptime':'30', 'log-sleeptime':'30'},
-    #5:{'name': 'notepad.exe', 'path':'', 'repeat':'1', 'sample-sleeptime':'15', 'log-sleeptime':'30'},
-    #6:{'name': 'fontview.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\','repeat':'10', 'sample-sleeptime':'20', 'log-sleeptime':'30'},
-    #7:{'name': 'ftp.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\','repeat':'10', 'sample-sleeptime':'20', 'log-sleeptime':'30'},
-}
-dictFile = 'opcodeDictionary.txt'
-csvFile = 'opcodeFrequency.csv'
-from os import path
-for app, appInfo in appList.items():
-    i = 1
-    while i <= int(appInfo['repeat']):
-        fileName = 'log_' +appInfo['name'].replace('.exe','')+'_'+ datetime.datetime.now().strftime("%m-%d-%Y-%H-%M-%S") + '.txt'
-        resCode = invokeSDEProcess(appInfo, fileName)
-        if(resCode != 0) and (path.exists(fileName)):
-            #rescode = pssid and kill the process
-            print(resCode, 'pss kill at ', datetime.datetime.now().strftime("%H-%M"))
-            killCmd =  "get-process -Id "+str(resCode)+ "| % { $_.CloseMainWindow() }"
-            #killCmdRes = subprocess.Popen("taskkil /F /PID "+resCode, stdout=subprocess.PIPE)
-            killCmdRes = subprocess.Popen(["powershell",killCmd], stdout=subprocess.PIPE)
-            #if pss still exists kill command with Pid
-            print('Pss sleep to complete sampling')
-            time.sleep(int(appInfo['log-sleeptime']))
-            opcodeList = opcodesGeneration(fileName)
-            if len(opcodeList) > 0:
-                try:
-                    dictRes = writeOpcodeDictionary(opcodeList, dictFile)
-                    print('New Dictionary Entries' if dictRes else 'No new Dictionary Entries')
-                except IOError:
-                    print('Error: Check if file exists and try again!', dictFile)
+def main():
+    logging.basicConfig(filename=logfile, level=logging.INFO)
+    logging.info('----Started the framework on %s----', datetime.datetime.now().strftime("%m-%d-%Y-%H-%M-%S"))
+    from os import path
+    for app, appInfo in appList.items():
+        i = 1
+        while i <= repeatInstance:
+            fileName = 'log_' +appInfo['name'].replace('.exe','')+'_'+ datetime.datetime.now().strftime("%m-%d-%Y-%H-%M-%S") + '.txt'
+            resCode = invokeSDEProcess(appInfo, fileName)
+            if(resCode != 0) and (path.exists(fileName)):
+                #rescode = pssid and kill the process
+                logging.info('%s pss kill at %s', resCode, datetime.datetime.now().strftime("%H-%M"))
+                killCmd =  "get-process -Id "+str(resCode)+ "| % { $_.CloseMainWindow() }"
+                #killCmdRes = subprocess.Popen("taskkil /F /PID "+resCode, stdout=subprocess.PIPE)
+                killCmdRes = subprocess.Popen(["powershell",killCmd], stdout=subprocess.PIPE)
+                #if pss still exists kill command with Pid
+                logging.info('Program sleeps to complete sampling')
+                time.sleep(samplingSleep)
+                opcodeList = opcodesGeneration(fileName)
+                if len(opcodeList) > 0:
+                    try:
+                        dictRes = writeOpcodeDictionary(opcodeList, dictFile)
+                        logging.info('New Dictionary Entries' if dictRes else 'No new Dictionary Entries')
+                    except IOError:
+                        logging.warning('Error: Check if file exists and try again!', dictFile)
+                        break
+                else:
+                    logging.warning('Incomplete SDE log: No opcodes generated for %s', fileName)
+                    os.rename(fileName,fileName.replace('log','logcrash'))
+                    logging.warning('Find missing log info from files logcrash*_')
                     break
             else:
-                print('Incomplete SDE log: No opcodes generated for', fileName)
-                os.rename(fileName,fileName.replace('log','logcrash'))
-                print('Find missing log info from files logcrash*_')
+                logging.warning('Error: No Trace info for %s', fileName)
                 break
-        else:
-            print('Error: No Trace info for', fileName)
-
-            break
-        i +=1
-  
-dictFile = 'opcodeDictionary.txt'
-csvFile = 'opcodeFrequency.csv'
+            i +=1
+            
+if __name__ == '__main__':
+    main()
 fillColRes = fillColNames(dictFile, csvFile)
-print('Fill CSV Column Names sucess' if fillColRes else 'Fill CSV Column Names Fail')
+logging.info('Fill CSV Column Names sucess' if fillColRes else 'Fill CSV Column Names Fail')
 # Run only once after generating all log files to record Opcode counts for each
 csvWriteRes = recordOpcodeOccurence(csvFile)
-print('CSV write sucess' if csvWriteRes else 'CSV Write Fail')
+logging.info('CSV write sucess' if csvWriteRes else 'CSV Write Fail')
+logging.info('----Ended the framework on %s----', datetime.datetime.now().strftime("%m-%d-%Y-%H-%M-%S"))
