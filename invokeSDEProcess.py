@@ -153,7 +153,8 @@ def main():
                 logging.warning('Error: No Trace info for %s', fileName)
                 break
             i +=1
-            
+ 
+#Entry point, Run only once
 if __name__ == '__main__':
     main()
 fillColRes = fillColNames(dictFile, csvFile)
