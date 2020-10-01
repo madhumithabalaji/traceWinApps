@@ -6,11 +6,6 @@ import time
 import os
 import signal
 import datetime
-import subprocess
-import time
-import os
-import signal
-import datetime
 def invokeSDEProcess(appInstance, fileName):
     iPid = 0
     print('start pss ', appInstance['name'])
