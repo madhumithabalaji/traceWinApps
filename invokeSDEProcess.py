@@ -52,9 +52,16 @@ def invokeSDEProcess(appInstance, fileName):
     keyboard.press('m')
     keyboard.release('m')
     keyboard.release(Key.ctrl)
+    bringPssForeground(pssPid)
     time.sleep(startupSleep)
     logging.info('%s pss ctrl return',iPid)
     return iPid
+ 
+# Bring pss to foreground
+def bringPssForeground(pid):
+    pssFrontCmd = '(New-Object -ComObject WScript.Shell).AppActivate((Get-Process -Id '+pid+').MainWindowTitle)'
+    subprocess.Popen(["powershell",pssFrontCmd], stdout=subprocess.PIPE)
+    return True
   
 # Start/stop mouseclicker exe file for random clicks
 def toggleMouseClicker(toggleNum):
