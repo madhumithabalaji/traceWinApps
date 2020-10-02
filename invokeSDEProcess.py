@@ -44,7 +44,7 @@ def invokeSDEProcess(appInstance, fileName):
     cmdRes = subprocess.Popen(["powershell",startPssCmd], stdout=subprocess.PIPE)
     pssPid = str(cmdRes.communicate()[0]).replace('\\r\\n\'','').replace('b\'','')
     iPid = int(pssPid)
-    sdePssCmd = "C:\\intelSDE\\sde-external-8.50.0-2020-03-26-win\\sde -attach-pid "+ pssPid +" -mix -omix "+ fileName
+    sdePssCmd = SDEPath + " -attach-pid "+ pssPid +" -mix -omix "+ fileName
     sdeCmdRes = subprocess.Popen(sdePssCmd, stdout=subprocess.PIPE)
     logging.info('%s pss starts to sleep at %s', iPid, datetime.datetime.now().strftime("%H-%M"))
     mouseClikrStatus = toggleMouseClicker()
