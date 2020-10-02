@@ -10,3 +10,5 @@ Pre-Req:
 -Install Jupyter notebook using pip
 -pip install pandas for Excel manipulation
 -pip install pynput for Keypress events
+-pip install psutil for process utils
+-Have mouse autoclicker app in the same location as the file (https://github.com/oriash93/AutoClicker)
