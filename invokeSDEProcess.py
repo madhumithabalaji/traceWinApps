@@ -7,17 +7,18 @@ startupSleep   = 10                                                      #time g
 samplingSleep  = 30                                                      #time given in secs for SDE to generate trace logs
 repeatInstance = 1                                                       #number of times each app will be started
 appList        = {                                                       #list of apps to be sampled
-                    1:{'name': 'choice.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\'},
+                    #1:{'name': 'choice.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\'},
                     #2:{'name': 'Utilman.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\'},
                     #3:{'name': 'DevicePairingWizard.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\'},
                     #4:{'name': 'cmd.exe', 'path':''},
-                    #5:{'name': 'notepad.exe', 'path':''},
+                    5:{'name': 'notepad.exe', 'path':''},
                     #6:{'name': 'fontview.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\'},
                     #7:{'name': 'ftp.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\'},
                 }           
 dictFile       = 'opcodeDictionary.txt'                                  #Dictionary with unique opcodes
 csvFile        = 'opcodeFrequency.csv'                                   #count of opcodes for each app instance in csv
 logfile        = 'logTraceWinApps.txt'                                   #Framework log info
+mouseClickrFile= 'C:\\Users\\14632\\Downloads\\RandomMouseClicker.exe'   #Random mouse clicker path
 
 import subprocess
 import time
@@ -28,24 +29,42 @@ import glob
 import csv
 import pandas as pdHandle
 import logging
+import psutil    
+from pynput.keyboard import Key, Controller
 
 global SDEpath, appList, startupSleep, samplingSleep, repeatInstance, dictFile, csvFile, logfile
+
 
 # Start Process, SDE attach-pid and sleep for a while
 def invokeSDEProcess(appInstance, fileName):
     iPid = 0
     logging.info('Start pss %s', appInstance['name'])
     logging.info('Trace log file created for %s: %s', appInstance['name'], fileName)
-    startPssCmd = '(Start-Process \"'+appInstance['path'] + appInstance['name']+'\" -passthru).ID'
+    startPssCmd = '(Start-Process -WindowStyle normal \"'+appInstance['path'] + appInstance['name']+'\" -passthru).ID'
     cmdRes = subprocess.Popen(["powershell",startPssCmd], stdout=subprocess.PIPE)
     pssPid = str(cmdRes.communicate()[0]).replace('\\r\\n\'','').replace('b\'','')
     iPid = int(pssPid)
     sdePssCmd = "C:\\intelSDE\\sde-external-8.50.0-2020-03-26-win\\sde -attach-pid "+ pssPid +" -mix -omix "+ fileName
     sdeCmdRes = subprocess.Popen(sdePssCmd, stdout=subprocess.PIPE)
     logging.info('%s pss starts to sleep at %s', iPid, datetime.datetime.now().strftime("%H-%M"))
+    mouseClikrStatus = toggleMouseClicker()
+    logging.info('Started Mouse Clicker' if mouseClikrStatus else 'Not started Mouse Clicker')
     time.sleep(startupSleep)
     logging.info('%s pss ctrl return',iPid)
     return iPid
+  
+#start/stop mouseclicker exe file for random clicks
+def toggleMouseClicker():
+    status = False
+    os.startfile(mouseClickrFile)
+    if ("RandomMouseClicker.exe" in (p.name() for p in psutil.process_iter())):
+        keyboard = Controller()
+        keyboard.press(Key.ctrl)
+        keyboard.press('m')
+        keyboard.release('m')
+        keyboard.release(Key.ctrl)
+        status = True
+    return status
 
 # create opcode list from trace log files
 def opcodesGeneration(fileName):
@@ -120,7 +139,7 @@ def recordOpcodeOccurence(csvFile):
 
 def main():
     logging.basicConfig(filename=logfile, level=logging.INFO)
-    logging.info('----Started the framework on %s----', datetime.datetime.now().strftime("%m-%d-%Y-%H-%M-%S"))
+    logging.info('------Started the framework on %s------', datetime.datetime.now().strftime("%m-%d-%Y-%H-%M-%S"))
     from os import path
     for app, appInfo in appList.items():
         i = 1
@@ -128,21 +147,23 @@ def main():
             fileName = 'log_' +appInfo['name'].replace('.exe','')+'_'+ datetime.datetime.now().strftime("%m-%d-%Y-%H-%M-%S") + '.txt'
             resCode = invokeSDEProcess(appInfo, fileName)
             if(resCode != 0) and (path.exists(fileName)):
-                #rescode = pssid and kill the process
                 logging.info('%s pss kill at %s', resCode, datetime.datetime.now().strftime("%H-%M"))
                 killCmd =  "get-process -Id "+str(resCode)+ "| % { $_.CloseMainWindow() }"
-                #killCmdRes = subprocess.Popen("taskkil /F /PID "+resCode, stdout=subprocess.PIPE)
                 killCmdRes = subprocess.Popen(["powershell",killCmd], stdout=subprocess.PIPE)
-                #if pss still exists kill command with Pid
+                mouseClikrStatus = toggleMouseClicker()
+                logging.info('Stopping Mouse Clicker' if mouseClikrStatus else 'Not stopped Mouse Clicker')
                 logging.info('Program sleeps to complete sampling')
                 time.sleep(samplingSleep)
+                #if pss still exists kill command with Pid
+                if psutil.pid_exists(resCode):
+                    os.kill(resCode, 0)
                 opcodeList = opcodesGeneration(fileName)
                 if len(opcodeList) > 0:
                     try:
                         dictRes = writeOpcodeDictionary(opcodeList, dictFile)
                         logging.info('New Dictionary Entries' if dictRes else 'No new Dictionary Entries')
                     except IOError:
-                        logging.warning('Error: Check if file exists and try again!', dictFile)
+                        logging.warning('Check if file exists and try again!', dictFile)
                         break
                 else:
                     logging.warning('Incomplete SDE log: No opcodes generated for %s', fileName)
@@ -150,16 +171,15 @@ def main():
                     logging.warning('Find missing log info from files logcrash*_')
                     break
             else:
-                logging.warning('Error: No Trace info for %s', fileName)
+                logging.warning('No Trace info for %s', fileName)
                 break
             i +=1
- 
-#Entry point, Run only once
+            
+#Entry point; Run only once
 if __name__ == '__main__':
     main()
 fillColRes = fillColNames(dictFile, csvFile)
 logging.info('Fill CSV Column Names sucess' if fillColRes else 'Fill CSV Column Names Fail')
-# Run only once after generating all log files to record Opcode counts for each
 csvWriteRes = recordOpcodeOccurence(csvFile)
 logging.info('CSV write sucess' if csvWriteRes else 'CSV Write Fail')
-logging.info('----Ended the framework on %s----', datetime.datetime.now().strftime("%m-%d-%Y-%H-%M-%S"))
+logging.info('------Ended the framework on %s------', datetime.datetime.now().strftime("%m-%d-%Y-%H-%M-%S"))
