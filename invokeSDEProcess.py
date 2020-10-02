@@ -56,7 +56,7 @@ def invokeSDEProcess(appInstance, fileName):
     logging.info('%s pss ctrl return',iPid)
     return iPid
   
-#start/stop mouseclicker exe file for random clicks
+# Start/stop mouseclicker exe file for random clicks
 def toggleMouseClicker(toggleNum):
     if (toggleNum == 1):
         os.startfile(mouseClickrFile)
@@ -71,7 +71,7 @@ def toggleMouseClicker(toggleNum):
                 logging.info('Stopped Mouse Clicker app')
     return True
 
-## create opcode list from trace log files
+# Create opcode list from trace log files
 def opcodesGeneration(fileName):
     opcodeList=[]
     for line in reversed(list(open(fileName))):
@@ -95,7 +95,7 @@ def writeOpcodeDictionary(opcodeList, opcodeDictionaryFile):
     fileHandle.close()
     return dictRes
 
-#Fillup the col names in CSV file
+# Fillup the col names in CSV file
 def fillColNames(opcodeDictFile, csvFile):
     fillCollRes = False
     import pandas as pdHandle
@@ -111,7 +111,7 @@ def fillColNames(opcodeDictFile, csvFile):
                 return False
     return True
 
-#Read log files for opcode occurence
+# Read log files for opcode occurence
 def recordOpcodeOccurence(csvFile):
     # for all files starting with log_ read the files reverse, have opcode list,
     # open csv, add row with pid as col 1, append values under proper col, fill others with 0
@@ -142,6 +142,7 @@ def recordOpcodeOccurence(csvFile):
         logging.warning('Error: Close the Excel file and try again!')
     return False
 
+# Main method with all function calls to create unique dictionary of opcodes
 def main():
     logging.basicConfig(filename=logfile, level=logging.INFO)
     logging.info('------Started the framework on %s------', datetime.datetime.now().strftime("%m-%d-%Y-%H-%M-%S"))
@@ -180,14 +181,14 @@ def main():
                 break
             i +=1
             
-#run once to set mouse clicker options
+# Run once to set mouse clicker options
 resCode = os.startfile(mouseClickrFile)
 time.sleep(15)
 for proc in psutil.process_iter():
     if(proc.name()==mouseClickrFile):
         proc.kill()
             
-#Entry point; Run only once
+# Entry point; Run only once
 if __name__ == '__main__':
     main()
 fillColRes = fillColNames(dictFile, csvFile)
