@@ -2,15 +2,15 @@
 # coding: utf-8
 
 #CHANGE APPINFO
-SDEpath        = 'C:\\intelSDE\\sde-external-8.50.0-2020-03-26-win\\sde' #path where SDE command is found
-startupSleep   = 10                                                      #time given in secs for process to show up on UI
+SDEpath        = 'C:\\Users\\balajima\\Downloads\\sde-external-8.50.0-2020-03-26-win\\sde' #path where SDE command is found
+startupSleep   = 20                                                      #time given in secs for process to show up on UI
 samplingSleep  = 30                                                      #time given in secs for SDE to generate trace logs
 repeatInstance = 1                                                       #number of times each app will be started
 appList        = {                                                       #list of apps to be sampled
                     #1:{'name': 'choice.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\'},
                     #2:{'name': 'Utilman.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\'},
-                    #3:{'name': 'DevicePairingWizard.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\'},
-                    #4:{'name': 'cmd.exe', 'path':''},
+                    3:{'name': 'DevicePairingWizard.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\'},
+                    4:{'name': 'cmd.exe', 'path':''},
                     5:{'name': 'notepad.exe', 'path':''},
                     #6:{'name': 'fontview.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\'},
                     #7:{'name': 'ftp.exe', 'path':'C:\\Users\\balajima\\Downloads\\trainingData\\'},
@@ -18,7 +18,7 @@ appList        = {                                                       #list o
 dictFile       = 'opcodeDictionary.txt'                                  #Dictionary with unique opcodes
 csvFile        = 'opcodeFrequency.csv'                                   #count of opcodes for each app instance in csv
 logfile        = 'logTraceWinApps.txt'                                   #Framework log info
-mouseClickrFile= 'C:\\Users\\14632\\Downloads\\RandomMouseClicker.exe'   #Random mouse clicker path
+mouseClickrFile= 'AutoClicker.exe'                                       #Random mouse clicker path
 
 import subprocess
 import time
@@ -32,7 +32,7 @@ import logging
 import psutil    
 from pynput.keyboard import Key, Controller
 
-global SDEpath, appList, startupSleep, samplingSleep, repeatInstance, dictFile, csvFile, logfile
+global SDEpath, appList, startupSleep, samplingSleep, repeatInstance, dictFile, csvFile, logfile, mouseClickrFile
 
 
 # Start Process, SDE attach-pid and sleep for a while
@@ -40,33 +40,38 @@ def invokeSDEProcess(appInstance, fileName):
     iPid = 0
     logging.info('Start pss %s', appInstance['name'])
     logging.info('Trace log file created for %s: %s', appInstance['name'], fileName)
-    startPssCmd = '(Start-Process -WindowStyle normal \"'+appInstance['path'] + appInstance['name']+'\" -passthru).ID'
+    startPssCmd = '(Start-Process -WindowStyle maximized \"'+appInstance['path'] + appInstance['name']+'\" -passthru).ID'
     cmdRes = subprocess.Popen(["powershell",startPssCmd], stdout=subprocess.PIPE)
     pssPid = str(cmdRes.communicate()[0]).replace('\\r\\n\'','').replace('b\'','')
     iPid = int(pssPid)
-    sdePssCmd = SDEPath + " -attach-pid "+ pssPid +" -mix -omix "+ fileName
+    sdePssCmd = SDEpath + " -attach-pid "+ pssPid +" -mix -omix "+ fileName
     sdeCmdRes = subprocess.Popen(sdePssCmd, stdout=subprocess.PIPE)
     logging.info('%s pss starts to sleep at %s', iPid, datetime.datetime.now().strftime("%H-%M"))
-    mouseClikrStatus = toggleMouseClicker()
-    logging.info('Started Mouse Clicker' if mouseClikrStatus else 'Not started Mouse Clicker')
+    keyboard = Controller()
+    keyboard.press(Key.ctrl)
+    keyboard.press('m')
+    keyboard.release('m')
+    keyboard.release(Key.ctrl)
     time.sleep(startupSleep)
     logging.info('%s pss ctrl return',iPid)
     return iPid
   
 #start/stop mouseclicker exe file for random clicks
-def toggleMouseClicker():
-    status = False
-    os.startfile(mouseClickrFile)
-    if ("RandomMouseClicker.exe" in (p.name() for p in psutil.process_iter())):
-        keyboard = Controller()
-        keyboard.press(Key.ctrl)
-        keyboard.press('m')
-        keyboard.release('m')
-        keyboard.release(Key.ctrl)
-        status = True
-    return status
+def toggleMouseClicker(toggleNum):
+    if (toggleNum == 1):
+        os.startfile(mouseClickrFile)
+        if (mouseClickrFile in (p.name() for p in psutil.process_iter())):
+            logging.info('Started Mouse Clicker app')
+        else:
+            logging.warning('Error starting Mouse Clicker app') 
+    else:
+        for proc in psutil.process_iter():
+            if(proc.name()==mouseClickrFile):
+                proc.kill()
+                logging.info('Stopped Mouse Clicker app')
+    return True
 
-# create opcode list from trace log files
+## create opcode list from trace log files
 def opcodesGeneration(fileName):
     opcodeList=[]
     for line in reversed(list(open(fileName))):
@@ -145,18 +150,18 @@ def main():
         i = 1
         while i <= repeatInstance:
             fileName = 'log_' +appInfo['name'].replace('.exe','')+'_'+ datetime.datetime.now().strftime("%m-%d-%Y-%H-%M-%S") + '.txt'
+            toggleMouseClicker(1)
             resCode = invokeSDEProcess(appInfo, fileName)
             if(resCode != 0) and (path.exists(fileName)):
                 logging.info('%s pss kill at %s', resCode, datetime.datetime.now().strftime("%H-%M"))
                 killCmd =  "get-process -Id "+str(resCode)+ "| % { $_.CloseMainWindow() }"
                 killCmdRes = subprocess.Popen(["powershell",killCmd], stdout=subprocess.PIPE)
-                mouseClikrStatus = toggleMouseClicker()
-                logging.info('Stopping Mouse Clicker' if mouseClikrStatus else 'Not stopped Mouse Clicker')
                 logging.info('Program sleeps to complete sampling')
+                toggleMouseClicker(0)
                 time.sleep(samplingSleep)
                 #if pss still exists kill command with Pid
                 if psutil.pid_exists(resCode):
-                    os.kill(resCode, 0)
+                    os.kill(resCode, signal.SIGTERM)
                 opcodeList = opcodesGeneration(fileName)
                 if len(opcodeList) > 0:
                     try:
@@ -174,6 +179,13 @@ def main():
                 logging.warning('No Trace info for %s', fileName)
                 break
             i +=1
+            
+#run once to set mouse clicker options
+resCode = os.startfile(mouseClickrFile)
+time.sleep(15)
+for proc in psutil.process_iter():
+    if(proc.name()==mouseClickrFile):
+        proc.kill()
             
 #Entry point; Run only once
 if __name__ == '__main__':
