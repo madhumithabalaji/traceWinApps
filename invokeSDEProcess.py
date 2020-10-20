@@ -203,3 +203,12 @@ logging.info('Fill CSV Column Names sucess' if fillColRes else 'Fill CSV Column 
 csvWriteRes = recordOpcodeOccurence(csvFile)
 logging.info('CSV write sucess' if csvWriteRes else 'CSV Write Fail')
 logging.info('------Ended the framework on %s------', datetime.datetime.now().strftime("%m-%d-%Y-%H-%M-%S"))
+
+remoteServPath = ' balajima@141.215.80.35:/home/balajima/work'
+fileName = 'sample.txt'
+def transferFiles(fileName):
+    moveCmd =  "scp "+ fileName + remoteServPath
+    print(moveCmd)
+    os.system(moveCmd)
+    return True
+transferFiles(fileName)
