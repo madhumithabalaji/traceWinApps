@@ -151,11 +151,10 @@ def recordOpcodeOccurence(csvFile):
     return False
 
 # SCP log files to remote server after operations
-# fileName = 'log_cmd_10-14-2020-20-55-20.txt'
 def transferLogFile(fileName):
-    moveCmd =  "pscp -P 22 -pw \"remoterpwdhere\" "+ fileName + remoteServPath
+    moveCmd =  "pscp -P 22 -pw \"remoteserverpwdhere\" "+ fileName + remoteServPath
     os.system(moveCmd)
-    return True
+    return True if (os.system(moveCmd) == 0) else False
   
 # Main method with all function calls to create unique dictionary of opcodes
 def main():
@@ -191,7 +190,7 @@ def main():
                     os.rename(fileName,fileName.replace('log','logcrash'))
                     logging.warning('Find missing log info from files logcrash*_')
                     break
-                transferLogFile(fileName)
+                logging.warning('Log File transer: %s',transferLogFile(fileName))
             else:
                 logging.warning('No Trace info for %s', fileName)
                 break
