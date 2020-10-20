@@ -19,6 +19,7 @@ dictFile       = 'opcodeDictionary.txt'                                  #Dictio
 csvFile        = 'opcodeFrequency.csv'                                   #count of opcodes for each app instance in csv
 logfile        = 'logTraceWinApps.txt'                                   #Framework log info
 mouseClickrFile= 'AutoClicker.exe'                                       #Random mouse clicker path
+remoteServPath = ' balajima@141.215.80.35:/home/balajima/work'           #Remote server path for SCP transfer
 
 import subprocess
 import time
@@ -32,7 +33,7 @@ import logging
 import psutil    
 from pynput.keyboard import Key, Controller
 
-global SDEpath, appList, startupSleep, samplingSleep, repeatInstance, dictFile, csvFile, logfile, mouseClickrFile
+global SDEpath, appList, startupSleep, samplingSleep, repeatInstance, dictFile, csvFile, logfile, mouseClickrFile, remoteServPath
 
 
 # Start Process, SDE attach-pid and sleep for a while
@@ -149,6 +150,13 @@ def recordOpcodeOccurence(csvFile):
         logging.warning('Error: Close the Excel file and try again!')
     return False
 
+# SCP log files to remote server after operations
+# fileName = 'log_cmd_10-14-2020-20-55-20.txt'
+def transferLogFile(fileName):
+    moveCmd =  "pscp -P 22 -pw \"remoterpwdhere\" "+ fileName + remoteServPath
+    os.system(moveCmd)
+    return True
+  
 # Main method with all function calls to create unique dictionary of opcodes
 def main():
     logging.basicConfig(filename=logfile, level=logging.INFO)
@@ -183,6 +191,7 @@ def main():
                     os.rename(fileName,fileName.replace('log','logcrash'))
                     logging.warning('Find missing log info from files logcrash*_')
                     break
+                transferLogFile(fileName)
             else:
                 logging.warning('No Trace info for %s', fileName)
                 break
@@ -204,11 +213,3 @@ csvWriteRes = recordOpcodeOccurence(csvFile)
 logging.info('CSV write sucess' if csvWriteRes else 'CSV Write Fail')
 logging.info('------Ended the framework on %s------', datetime.datetime.now().strftime("%m-%d-%Y-%H-%M-%S"))
 
-remoteServPath = ' balajima@141.215.80.35:/home/balajima/work'
-fileName = 'sample.txt'
-def transferFiles(fileName):
-    moveCmd =  "scp "+ fileName + remoteServPath
-    print(moveCmd)
-    os.system(moveCmd)
-    return True
-transferFiles(fileName)
