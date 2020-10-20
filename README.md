@@ -12,3 +12,4 @@ Pre-Req:
 -pip install pynput for Keypress events
 -pip install psutil for process utils
 -Have mouse autoclicker app in the same location as the file (https://github.com/oriash93/AutoClicker)
+- Install PuTTY application for scp tranfers
