@@ -211,3 +211,9 @@ def invokeSDEProcess(intrSampleSlp, appInstance, fileName):
     logging.info('%s pss ctrl returned after sampling sleep %s',iPid, datetime.datetime.now().strftime("%H:%M:%S"))
     return iPid
   
+#run once to set mouse clicker options
+resCode = os.startfile(mouseClickrFile)
+time.sleep(15)
+for proc in psutil.process_iter():
+    if(proc.name()==mouseClickrFile):
+        proc.kill()
