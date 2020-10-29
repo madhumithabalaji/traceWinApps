@@ -2,6 +2,7 @@ dictFile       = 'opcodeDictionary.txt'                                  #Dictio
 csvFile        = 'opcodeFrequency.csv'                                   #count of opcodes for each app instance in csv
 logfile        = 'logCSVGen.txt'                                         #Framework log info
 logsPath       = '/data2/balajima/windows_malware/SDElogs/log_*'
+
 import subprocess
 import time
 import os
