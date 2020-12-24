@@ -1,0 +1,2704 @@
+# Mix output version 10
+# Intel(R) SDE version: 8.56.0 external
+# Starting tid 1,  OS-TID 2680
+# FINI: end of program
+
+# EMIT_IMAGE_ADDRESSES 
+# 
+#    IMAGE NAME                                                                              LOW ADDRESS   HIGH ADDRESS  
+# 
+C:\Users\balajima\Downloads\odin.exe                                                         000000400000  0000010befff
+C:\Windows\SysWOW64\uxtheme.dll                                                              000074d70000  000074deffff
+C:\Windows\SysWOW64\dwmapi.dll                                                               000074fd0000  000074fe2fff
+C:\Windows\syswow64\CRYPTBASE.dll                                                            000075460000  00007546bfff
+C:\Windows\syswow64\SspiCli.dll                                                              000075470000  0000754cffff
+C:\Windows\syswow64\KERNELBASE.dll                                                           0000754d0000  000075516fff
+C:\Windows\syswow64\RPCRT4.dll                                                               000075770000  00007585ffff
+C:\Windows\syswow64\kernel32.dll                                                             000075870000  00007597ffff
+C:\Windows\syswow64\USER32.dll                                                               000075c40000  000075d3ffff
+C:\Windows\syswow64\SHLWAPI.dll                                                              000075d40000  000075d96fff
+C:\Windows\syswow64\LPK.dll                                                                  000075e30000  000075e39fff
+C:\Windows\SysWOW64\sechost.dll                                                              000075f40000  000075f58fff
+C:\Windows\syswow64\USP10.dll                                                                000076180000  00007621cfff
+C:\Windows\syswow64\GDI32.dll                                                                000076250000  0000762dffff
+C:\Windows\syswow64\SHELL32.dll                                                              0000762e0000  000076f2bfff
+C:\Windows\syswow64\ole32.dll                                                                000076f30000  00007708bfff
+C:\Windows\syswow64\MSCTF.dll                                                                000077090000  00007715bfff
+C:\Windows\syswow64\ADVAPI32.dll                                                             000077160000  000077200fff
+C:\Windows\syswow64\msvcrt.dll                                                               0000773b0000  00007745bfff
+C:\Windows\syswow64\OLEAUT32.dll                                                             000077460000  0000774eefff
+C:\Windows\SysWOW64\imm32.dll                                                                000077520000  00007757ffff
+C:\Windows\SysWOW64\ntdll.dll                                                                000077960000  000077adffff
+# END_IMAGE_ADDRESSES
+
+# ==============================================
+# STATS FOR TID 1  OS-TID  2680 EMIT# 1
+# ==============================================
+# EMIT_TOP_BLOCK_STATS FOR TID 1  OS-TID 2680 EMIT # 1 EVENT=ICOUNT
+BLOCK:     0   PC: 761d9440   ICOUNT:      8064   EXECUTIONS:       672   #BYTES: 38   %:  1.36   cumltv%:  1.36  FN: unnamedImageEntryPoint  IMG: C:\Windows\syswow64\USP10.dll  OFFSET: 59440
+XDIS 761d9440: BASE 0FB7C7                   movzx eax, di
+XDIS 761d9443: BASE 0FB7CA                   movzx ecx, dx
+XDIS 761d9446: BASE 03C8                     add ecx, eax
+XDIS 761d9448: BASE D1F9                     sar ecx, 0x1
+XDIS 761d944a: BASE 0FB7C9                   movzx ecx, cx
+XDIS 761d944d: BASE 0FB7C1                   movzx eax, cx
+XDIS 761d9450: BASE 8D0440                   lea eax, ptr [eax+eax*2]
+XDIS 761d9453: BASE 668B5C4604               mov bx, word ptr [esi+eax*2+0x4]
+XDIS 761d9458: BASE 8D444604                 lea eax, ptr [esi+eax*2+0x4]
+XDIS 761d945c: BASE 66C1C308                 rol bx, 0x8
+XDIS 761d9460: BASE 66395D08                 cmp word ptr [ebp+0x8], bx
+XDIS 761d9464: BASE 7305                     jnb 0x761d946b
+
+BLOCK:     1   PC: 75c5628f   ICOUNT:      7435   EXECUTIONS:      1487   #BYTES: 12   %:  1.25   cumltv%:   2.6  FN: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll  OFFSET: 1628f
+XDIS 75c5628f: BASE 83C008                   add eax, 0x8
+XDIS 75c56292: BASE 83D200                   adc edx, 0x0
+XDIS 75c56295: BASE 33DB                     xor ebx, ebx
+XDIS 75c56297: BASE 3BD3                     cmp edx, ebx
+XDIS 75c56299: BASE 72E9                     jb 0x75c56284
+
+BLOCK:     2   PC: 761cffb7   ICOUNT:      7400   EXECUTIONS:       740   #BYTES: 29   %:  1.24   cumltv%:  3.85  FN: unnamedImageEntryPoint  IMG: C:\Windows\syswow64\USP10.dll  OFFSET: 4ffb7
+XDIS 761cffb7: BASE 0FB7D7                   movzx edx, di
+XDIS 761cffba: BASE 0FB7CE                   movzx ecx, si
+XDIS 761cffbd: BASE 03CA                     add ecx, edx
+XDIS 761cffbf: BASE D1F9                     sar ecx, 0x1
+XDIS 761cffc1: BASE 0FB7C1                   movzx eax, cx
+XDIS 761cffc4: BASE 0FB7C8                   movzx ecx, ax
+XDIS 761cffc7: BASE 8D548B06                 lea edx, ptr [ebx+ecx*4+0x6]
+XDIS 761cffcb: BASE 0FB70A                   movzx ecx, word ptr [edx]
+XDIS 761cffce: BASE 66394D08                 cmp word ptr [ebp+0x8], cx
+XDIS 761cffd2: BASE 7305                     jnb 0x761cffd9
+
+BLOCK:     3   PC: 779822bf   ICOUNT:      5880   EXECUTIONS:       588   #BYTES: 33   %: 0.988   cumltv%:  4.84  FN: RtlLeaveCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll  OFFSET: 222bf
+XDIS 779822bf: BASE 53                       push ebx
+XDIS 779822c0: BASE 57                       push edi
+XDIS 779822c1: BASE 8D7E04                   lea edi, ptr [esi+0x4]
+XDIS 779822c4: BASE C7460C00000000           mov dword ptr [esi+0xc], 0x0
+XDIS 779822cb: BASE BB01000000               mov ebx, 0x1
+XDIS 779822d0: BASE 8BC7                     mov eax, edi
+XDIS 779822d2: BASE F00FC118                 lock xadd dword ptr [eax], ebx
+XDIS 779822d6: BASE 43                       inc ebx
+XDIS 779822d7: BASE 83FBFF                   cmp ebx, 0xffffffff
+XDIS 779822da: BASE 0F8569C90200             jnz 0x779aec49
+
+BLOCK:     4   PC: 755073c4   ICOUNT:      5880   EXECUTIONS:       280   #BYTES: 69   %: 0.988   cumltv%:  5.82  FN: IsNLSDefinedString  IMG: C:\Windows\syswow64\KERNELBASE.dll  OFFSET: 373c4
+XDIS 755073c4: BASE 6830745075               push 0x75507430
+XDIS 755073c9: BASE 64FF3500000000           push dword ptr fs:[0x0]
+XDIS 755073d0: BASE 8B442410                 mov eax, dword ptr [esp+0x10]
+XDIS 755073d4: BASE 896C2410                 mov dword ptr [esp+0x10], ebp
+XDIS 755073d8: BASE 8D6C2410                 lea ebp, ptr [esp+0x10]
+XDIS 755073dc: BASE 2BE0                     sub esp, eax
+XDIS 755073de: BASE 53                       push ebx
+XDIS 755073df: BASE 56                       push esi
+XDIS 755073e0: BASE 57                       push edi
+XDIS 755073e1: BASE A140125175               mov eax, dword ptr [0x75511240]
+XDIS 755073e6: BASE 3145FC                   xor dword ptr [ebp-0x4], eax
+XDIS 755073e9: BASE 33C5                     xor eax, ebp
+XDIS 755073eb: BASE 50                       push eax
+XDIS 755073ec: BASE 8965E8                   mov dword ptr [ebp-0x18], esp
+XDIS 755073ef: BASE FF75F8                   push dword ptr [ebp-0x8]
+XDIS 755073f2: BASE 8B45FC                   mov eax, dword ptr [ebp-0x4]
+XDIS 755073f5: BASE C745FCFEFFFFFF           mov dword ptr [ebp-0x4], 0xfffffffe
+XDIS 755073fc: BASE 8945F8                   mov dword ptr [ebp-0x8], eax
+XDIS 755073ff: BASE 8D45F0                   lea eax, ptr [ebp-0x10]
+XDIS 75507402: BASE 64A300000000             mov dword ptr fs:[0x0], eax
+XDIS 75507408: BASE C3                       ret 
+
+BLOCK:     5   PC: 779822f0   ICOUNT:      5665   EXECUTIONS:       515   #BYTES: 29   %: 0.952   cumltv%:  6.78  FN: RtlEnterCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll  OFFSET: 222f0
+XDIS 779822f0: BASE 8BFF                     mov edi, edi
+XDIS 779822f2: BASE 55                       push ebp
+XDIS 779822f3: BASE 8BEC                     mov ebp, esp
+XDIS 779822f5: BASE 83EC0C                   sub esp, 0xc
+XDIS 779822f8: BASE 56                       push esi
+XDIS 779822f9: BASE 57                       push edi
+XDIS 779822fa: BASE 8B7D08                   mov edi, dword ptr [ebp+0x8]
+XDIS 779822fd: BASE 8D7704                   lea esi, ptr [edi+0x4]
+XDIS 77982300: BASE 8BC6                     mov eax, esi
+XDIS 77982302: BASE F00FBA3000               lock btr dword ptr [eax], 0x0
+XDIS 77982307: BASE 0F83FE020100             jnb 0x7799260b
+
+BLOCK:     6   PC: 7798230d   ICOUNT:      5110   EXECUTIONS:       511   #BYTES: 29   %: 0.859   cumltv%:  7.63  FN: RtlEnterCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll  OFFSET: 2230d
+XDIS 7798230d: BASE 64A118000000             mov eax, dword ptr fs:[0x18]
+XDIS 77982313: BASE 8B4824                   mov ecx, dword ptr [eax+0x24]
+XDIS 77982316: BASE 894F0C                   mov dword ptr [edi+0xc], ecx
+XDIS 77982319: BASE C7470801000000           mov dword ptr [edi+0x8], 0x1
+XDIS 77982320: BASE 5F                       pop edi
+XDIS 77982321: BASE 33C0                     xor eax, eax
+XDIS 77982323: BASE 5E                       pop esi
+XDIS 77982324: BASE 8BE5                     mov esp, ebp
+XDIS 77982326: BASE 5D                       pop ebp
+XDIS 77982327: BASE C20400                   ret 0x4
+
+BLOCK:     7   PC: 75c562bf   ICOUNT:      4988   EXECUTIONS:      1247   #BYTES:  9   %: 0.838   cumltv%:  8.47  FN: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll  OFFSET: 162bf
+XDIS 75c562bf: BASE 83C008                   add eax, 0x8
+XDIS 75c562c2: BASE 13D6                     adc edx, esi
+XDIS 75c562c4: BASE 3BD6                     cmp edx, esi
+XDIS 75c562c6: BASE 72EC                     jb 0x75c562b4
+
+BLOCK:     8   PC: 75c56125   ICOUNT:      4578   EXECUTIONS:       218   #BYTES: 69   %: 0.769   cumltv%:  9.24  FN: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll  OFFSET: 16125
+XDIS 75c56125: BASE 681EA6CB75               push 0x75cba61e
+XDIS 75c5612a: BASE 64FF3500000000           push dword ptr fs:[0x0]
+XDIS 75c56131: BASE 8B442410                 mov eax, dword ptr [esp+0x10]
+XDIS 75c56135: BASE 896C2410                 mov dword ptr [esp+0x10], ebp
+XDIS 75c56139: BASE 8D6C2410                 lea ebp, ptr [esp+0x10]
+XDIS 75c5613d: BASE 2BE0                     sub esp, eax
+XDIS 75c5613f: BASE 53                       push ebx
+XDIS 75c56140: BASE 56                       push esi
+XDIS 75c56141: BASE 57                       push edi
+XDIS 75c56142: BASE A12007CC75               mov eax, dword ptr [0x75cc0720]
+XDIS 75c56147: BASE 3145FC                   xor dword ptr [ebp-0x4], eax
+XDIS 75c5614a: BASE 33C5                     xor eax, ebp
+XDIS 75c5614c: BASE 50                       push eax
+XDIS 75c5614d: BASE 8965E8                   mov dword ptr [ebp-0x18], esp
+XDIS 75c56150: BASE FF75F8                   push dword ptr [ebp-0x8]
+XDIS 75c56153: BASE 8B45FC                   mov eax, dword ptr [ebp-0x4]
+XDIS 75c56156: BASE C745FCFEFFFFFF           mov dword ptr [ebp-0x4], 0xfffffffe
+XDIS 75c5615d: BASE 8945F8                   mov dword ptr [ebp-0x8], eax
+XDIS 75c56160: BASE 8D45F0                   lea eax, ptr [ebp-0x10]
+XDIS 75c56163: BASE 64A300000000             mov dword ptr fs:[0x0], eax
+XDIS 75c56169: BASE C3                       ret 
+
+BLOCK:     9   PC: 75c56284   ICOUNT:      4512   EXECUTIONS:      1504   #BYTES: 11   %: 0.758   cumltv%:    10  FN: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll  OFFSET: 16284
+XDIS 75c56284: BASE 8B5D08                   mov ebx, dword ptr [ebp+0x8]
+XDIS 75c56287: BASE 3B18                     cmp ebx, dword ptr [eax]
+XDIS 75c56289: BASE 0F84101E0100             jz 0x75c6809f
+
+BLOCK:    10   PC: 779822b0   ICOUNT:      4144   EXECUTIONS:       592   #BYTES: 15   %: 0.696   cumltv%:  10.7  FN: RtlLeaveCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll  OFFSET: 222b0
+XDIS 779822b0: BASE 8BFF                     mov edi, edi
+XDIS 779822b2: BASE 55                       push ebp
+XDIS 779822b3: BASE 8BEC                     mov ebp, esp
+XDIS 779822b5: BASE 56                       push esi
+XDIS 779822b6: BASE 8B7508                   mov esi, dword ptr [ebp+0x8]
+XDIS 779822b9: BASE 834608FF                 add dword ptr [esi+0x8], 0xffffffff
+XDIS 779822bd: BASE 7523                     jnz 0x779822e2
+
+BLOCK:    11   PC: 75c562b4   ICOUNT:      3765   EXECUTIONS:      1255   #BYTES: 11   %: 0.633   cumltv%:  11.3  FN: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll  OFFSET: 162b4
+XDIS 75c562b4: BASE 8B5D08                   mov ebx, dword ptr [ebp+0x8]
+XDIS 75c562b7: BASE 3B18                     cmp ebx, dword ptr [eax]
+XDIS 75c562b9: BASE 0F8497200000             jz 0x75c58356
+
+BLOCK:    12   PC: 75c56280   ICOUNT:      3122   EXECUTIONS:      1561   #BYTES:  4   %: 0.525   cumltv%:  11.9  FN: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll  OFFSET: 16280
+XDIS 75c56280: BASE 3BC7                     cmp eax, edi
+XDIS 75c56282: BASE 7319                     jnb 0x75c5629d
+
+BLOCK:    13   PC: 75507409   ICOUNT:      3080   EXECUTIONS:       280   #BYTES: 20   %: 0.518   cumltv%:  12.4  FN: IsNLSDefinedString  IMG: C:\Windows\syswow64\KERNELBASE.dll  OFFSET: 37409
+XDIS 75507409: BASE 8B4DF0                   mov ecx, dword ptr [ebp-0x10]
+XDIS 7550740c: BASE 64890D00000000           mov dword ptr fs:[0x0], ecx
+XDIS 75507413: BASE 59                       pop ecx
+XDIS 75507414: BASE 5F                       pop edi
+XDIS 75507415: BASE 5F                       pop edi
+XDIS 75507416: BASE 5E                       pop esi
+XDIS 75507417: BASE 5B                       pop ebx
+XDIS 75507418: BASE 8BE5                     mov esp, ebp
+XDIS 7550741a: BASE 5D                       pop ebp
+XDIS 7550741b: BASE 51                       push ecx
+XDIS 7550741c: BASE C3                       ret 
+
+BLOCK:    14   PC: 773c3764   ICOUNT:      3054   EXECUTIONS:       509   #BYTES: 16   %: 0.513   cumltv%:  12.9  FN: fcloseall  IMG: C:\Windows\syswow64\msvcrt.dll  OFFSET: 13764
+XDIS 773c3764: BASE 8BF7                     mov esi, edi
+XDIS 773c3766: BASE C1E602                   shl esi, 0x2
+XDIS 773c3769: BASE A1E0044577               mov eax, dword ptr [0x774504e0]
+XDIS 773c376e: BASE 03C6                     add eax, esi
+XDIS 773c3770: BASE 3918                     cmp dword ptr [eax], ebx
+XDIS 773c3772: BASE 7520                     jnz 0x773c3794
+
+BLOCK:    15   PC: 775316a0   ICOUNT:      2907   EXECUTIONS:       153   #BYTES: 59   %: 0.488   cumltv%:  13.4  FN: CtfImmDispatchDefImeMessage  IMG: C:\Windows\SysWOW64\imm32.dll  OFFSET: 116a0
+XDIS 775316a0: BASE 8BFF                     mov edi, edi
+XDIS 775316a2: BASE 55                       push ebp
+XDIS 775316a3: BASE 8BEC                     mov ebp, esp
+XDIS 775316a5: BASE 83EC10                   sub esp, 0x10
+XDIS 775316a8: BASE 64A118000000             mov eax, dword ptr fs:[0x18]
+XDIS 775316ae: BASE 53                       push ebx
+XDIS 775316af: BASE 56                       push esi
+XDIS 775316b0: BASE 8BB0700F0000             mov esi, dword ptr [eax+0xf70]
+XDIS 775316b6: BASE 8855FC                   mov byte ptr [ebp-0x4], dl
+XDIS 775316b9: BASE 8B1530005577             mov edx, dword ptr [0x77550030]
+XDIS 775316bf: BASE 57                       push edi
+XDIS 775316c0: BASE 33C0                     xor eax, eax
+XDIS 775316c2: BASE 33DB                     xor ebx, ebx
+XDIS 775316c4: BASE 33FF                     xor edi, edi
+XDIS 775316c6: BASE 81C600080000             add esi, 0x800
+XDIS 775316cc: BASE 894DF8                   mov dword ptr [ebp-0x8], ecx
+XDIS 775316cf: BASE 0FB7C9                   movzx ecx, cx
+XDIS 775316d2: BASE 3B420C                   cmp eax, dword ptr [edx+0xc]
+XDIS 775316d5: BASE 0F8782000000             jnbe 0x7753175d
+
+BLOCK:    16   PC: 77998546   ICOUNT:      2808   EXECUTIONS:       312   #BYTES: 25   %: 0.472   cumltv%:  13.8  FN: RtlLockHeap  IMG: C:\Windows\SysWOW64\ntdll.dll  OFFSET: 38546
+XDIS 77998546: BASE 8BFF                     mov edi, edi
+XDIS 77998548: BASE 55                       push ebp
+XDIS 77998549: BASE 8BEC                     mov ebp, esp
+XDIS 7799854b: BASE 56                       push esi
+XDIS 7799854c: BASE 8B7508                   mov esi, dword ptr [ebp+0x8]
+XDIS 7799854f: BASE 57                       push edi
+XDIS 77998550: BASE 8D7E64                   lea edi, ptr [esi+0x64]
+XDIS 77998553: BASE 813FFFEEFFEE             cmp dword ptr [edi], 0xeeffeeff
+XDIS 77998559: BASE 0F85E44C0500             jnz 0x779ed243
+
+BLOCK:    17   PC: 75c562b0   ICOUNT:      2608   EXECUTIONS:      1304   #BYTES:  4   %: 0.438   cumltv%:  14.3  FN: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll  OFFSET: 162b0
+XDIS 75c562b0: BASE 3BC1                     cmp eax, ecx
+XDIS 75c562b2: BASE 7316                     jnb 0x75c562ca
+
+BLOCK:    18   PC: 779822e2   ICOUNT:      2368   EXECUTIONS:       592   #BYTES:  7   %: 0.398   cumltv%:  14.7  FN: RtlLeaveCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll  OFFSET: 222e2
+XDIS 779822e2: BASE 33C0                     xor eax, eax
+XDIS 779822e4: BASE 5E                       pop esi
+XDIS 779822e5: BASE 5D                       pop ebp
+XDIS 779822e6: BASE C20400                   ret 0x4
+
+BLOCK:    19   PC: 75c5616a   ICOUNT:      2365   EXECUTIONS:       215   #BYTES: 20   %: 0.397   cumltv%:  15.1  FN: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll  OFFSET: 1616a
+XDIS 75c5616a: BASE 8B4DF0                   mov ecx, dword ptr [ebp-0x10]
+XDIS 75c5616d: BASE 64890D00000000           mov dword ptr fs:[0x0], ecx
+XDIS 75c56174: BASE 59                       pop ecx
+XDIS 75c56175: BASE 5F                       pop edi
+XDIS 75c56176: BASE 5F                       pop edi
+XDIS 75c56177: BASE 5E                       pop esi
+XDIS 75c56178: BASE 5B                       pop ebx
+XDIS 75c56179: BASE 8BE5                     mov esp, ebp
+XDIS 75c5617b: BASE 5D                       pop ebp
+XDIS 75c5617c: BASE 51                       push ecx
+XDIS 75c5617d: BASE C3                       ret 
+
+# END_TOP_BLOCK_STATS
+# EMIT_DYNAMIC_STATS FOR TID 1  OS-TID 2680 EMIT #1
+#
+# $dynamic-counts
+#
+# TID 1
+#       opcode                 count
+#
+*mem-atomic                                                        14893
+*stack-read                                                       115802
+*stack-write                                                      117106
+*mem-read-1                                                         8283
+*mem-read-2                                                        13395
+*mem-read-4                                                       179818
+*mem-read-8                                                          123
+*mem-read-32                                                         288
+*mem-write-1                                                        3226
+*mem-write-2                                                        2687
+*mem-write-4                                                      137362
+*mem-write-8                                                         123
+*mem-write-16                                                        616
+*mem-write-32                                                        288
+*mem-read                                                         201907
+*mem-write                                                        144302
+*mem                                                              307602
+*isa-ext-BASE                                                     594127
+*isa-ext-SSE2                                                        632
+*isa-ext-X87                                                         365
+*isa-set-I186                                                      14218
+*isa-set-I386                                                      26071
+*isa-set-I486REAL                                                   1270
+*isa-set-I86                                                      552445
+*isa-set-PENTIUMREAL                                                 123
+*isa-set-SSE2                                                        632
+*isa-set-X87                                                         365
+*category-BINARY                                                   83346
+*category-BITBYTE                                                    598
+*category-CALL                                                     21143
+*category-COND_BR                                                  74607
+*category-CONVERT                                                    709
+*category-DATAXFER                                                176848
+*category-LOGICAL                                                  44153
+*category-MISC                                                     23126
+*category-NOP                                                        860
+*category-POP                                                      32460
+*category-PUSH                                                     60562
+*category-RET                                                      20922
+*category-ROTATE                                                    1470
+*category-SEMAPHORE                                                 1393
+*category-SETCC                                                      555
+*category-SHIFT                                                     6911
+*category-STRINGOP                                                  6769
+*category-UNCOND_BR                                                38327
+*category-X87_ALU                                                    365
+*ilen-1                                                           100907
+*ilen-2                                                           162668
+*ilen-3                                                           158269
+*ilen-4                                                            31075
+*ilen-5                                                            64376
+*ilen-6                                                            66260
+*ilen-7                                                            10419
+*ilen-8                                                              970
+*ilen-10                                                             171
+*ilen-11                                                               9
+*nop-ilen-1                                                          860
+*sse-packed                                                          632
+*legacy-prefixes-0                                                565975
+*legacy-prefixes-1                                                 28845
+*legacy-prefixes-2                                                   304
+*legacy-prefixes-and-escapes-0                                    513442
+*legacy-prefixes-and-escapes-1                                     78611
+*legacy-prefixes-and-escapes-2                                      3071
+*segment_prefix                                                     5135
+*lock_prefix                                                        1991
+*rep_prefix                                                         5807
+*repne_prefix                                                        304
+*66_prefix                                                         16216
+*sib                                                               30005
+*loadop                                                           168852
+*one-memops                                                       289762
+*two-memops                                                        17840
+*cond-branch-forward                                               59691
+*cond-branch-backward                                              14916
+*disp_only                                                         19141
+*index_disp                                                         1047
+*base_only                                                        167277
+*base_disp                                                        115615
+*base_index                                                         2849
+*base_index_disp                                                    1673
+*scale_1                                                          319422
+*scale_2                                                            3674
+*scale_4                                                            4035
+*scale_8                                                            1523
+*memdisp8                                                         117980
+*memdisp32                                                         37528
+*elements_i1_128                                                      16
+*convert_i32_1                                                       705
+*convert_i64_4                                                         4
+*dataxfer_i32_4                                                      616
+ADC                                                                 2921
+ADD                                                                13411
+AND                                                                 5981
+BTR_LOCK                                                             593
+BTS_LOCK                                                               5
+CALL_NEAR                                                          21143
+CDQ                                                                  705
+CMP                                                                44867
+CMPXCHG8B_LOCK                                                       123
+CMPXCHG_LOCK                                                         137
+CWDE                                                                   4
+DEC                                                                 2181
+DIV                                                                   38
+FCOM                                                                  27
+FCOMP                                                                 21
+FCOMPP                                                                14
+FDIV                                                                   6
+FILD                                                                  12
+FLD                                                                   94
+FLD1                                                                  31
+FNSTSW                                                                84
+FST                                                                   10
+FSTP                                                                  44
+FUCOMPP                                                               22
+IDIV                                                                   8
+IMUL                                                                1404
+INC                                                                 7606
+JB                                                                  8857
+JBE                                                                 3740
+JL                                                                  1207
+JLE                                                                  428
+JMP                                                                38084
+JMP_FAR                                                              243
+JNB                                                                 8824
+JNBE                                                                2468
+JNL                                                                 2070
+JNLE                                                                 611
+JNP                                                                   17
+JNS                                                                  169
+JNZ                                                                20893
+JP                                                                    50
+JS                                                                    33
+JZ                                                                 25240
+LEA                                                                21052
+LEAVE                                                               2074
+MOV                                                               143983
+MOVDQA                                                               616
+MOVSD                                                                476
+MOVSW                                                                113
+MOVSX                                                                134
+MOVZX                                                              18061
+MUL                                                                   19
+NEG                                                                 1387
+NOP                                                                  860
+NOT                                                                  723
+OR                                                                  3214
+POP                                                                32065
+POPAD                                                                288
+POPFD                                                                107
+PUSH                                                               60167
+PUSHAD                                                               288
+PUSHFD                                                               107
+PXOR                                                                  16
+REPE_CMPSB                                                            81
+REPE_CMPSD                                                           355
+REPNE_SCASW                                                          304
+REP_MOVSD                                                           2469
+REP_STOSB                                                           1284
+REP_STOSD                                                           1618
+RET_NEAR                                                           20922
+ROL                                                                 1468
+ROR                                                                    2
+SAR                                                                 2060
+SBB                                                                  830
+SETL                                                                  41
+SETLE                                                                 10
+SETNL                                                                 12
+SETNZ                                                                204
+SETZ                                                                 288
+SHL                                                                 2051
+SHLD                                                                 109
+SHR                                                                 2563
+SHRD                                                                 128
+STOSD                                                                 69
+SUB                                                                 8674
+TEST                                                               19074
+XADD_LOCK                                                           1133
+XCHG                                                               14054
+XOR                                                                15145
+*total                                                            595124
+# END_DYNAMIC_STATS
+# FUNCTION TOTALS FOR TID 1  OS-TID 2680
+#rank total-icount     %   cumulative%   #times-called    address  function-name    image-name
+   0:       105043  17.651  17.651             0                 1 NO_image_information
+   1:        79735  13.398  31.049             1          761b3fd7 unnamedImageEntryPoint  IMG: C:\Windows\syswow64\USP10.dll
+   2:        49221   8.271  39.319             0          75c55fc8 gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll
+   3:        37232   6.256  45.576             0          77992984 RtlQueryPerformanceCounter  IMG: C:\Windows\SysWOW64\ntdll.dll
+   4:        13568   2.280  47.855           592          779822b0 RtlLeaveCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll
+   5:        12596   2.117  49.972            12          7753163c CtfImmDispatchDefImeMessage  IMG: C:\Windows\SysWOW64\imm32.dll
+   6:        11753   1.975  51.947            46          77095d00 TF_InvalidAssemblyListCacheIfExist  IMG: C:\Windows\syswow64\MSCTF.dll
+   7:        11218   1.885  53.832             4          76188a80 ScriptApplyDigitSubstitution  IMG: C:\Windows\syswow64\USP10.dll
+   8:        10854   1.824  55.656             0          75c56c63 GetThreadDesktop  IMG: C:\Windows\syswow64\USER32.dll
+   9:        10775   1.811  57.466           515          779822f0 RtlEnterCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll
+               595124 TOTAL
+# END FUNCTION TOTALS
+# EMIT_PER_FUNCTION_STATS FOR TID 1  OS-TID 2680 EMIT# 1
+#
+# $dynamic-counts-for-function: NO_image_information at [0x1, 0x2)  17.651%
+#
+# TID 1
+#       opcode                 count
+#
+*mem-atomic                                                        12900
+*stack-read                                                        28840
+*stack-write                                                       28410
+*mem-read-1                                                          441
+*mem-read-2                                                          185
+*mem-read-4                                                        36853
+*mem-read-32                                                         288
+*mem-write-1                                                         179
+*mem-write-2                                                         107
+*mem-write-4                                                       32029
+*mem-write-32                                                        288
+*mem-read                                                          37767
+*mem-write                                                         32603
+*mem                                                               52537
+*isa-ext-BASE                                                     105043
+*isa-set-I186                                                        753
+*isa-set-I386                                                       2724
+*isa-set-I86                                                      101566
+*category-BINARY                                                    6088
+*category-CALL                                                      7218
+*category-COND_BR                                                   4323
+*category-DATAXFER                                                 29905
+*category-LOGICAL                                                   1897
+*category-MISC                                                      7183
+*category-POP                                                       3504
+*category-PUSH                                                      5817
+*category-RET                                                       7067
+*category-SHIFT                                                      292
+*category-STRINGOP                                                  1712
+*category-UNCOND_BR                                                30037
+*ilen-1                                                            13784
+*ilen-2                                                            11036
+*ilen-3                                                            26316
+*ilen-4                                                             3336
+*ilen-5                                                            38589
+*ilen-6                                                            11481
+*ilen-7                                                              501
+*legacy-prefixes-0                                                103307
+*legacy-prefixes-1                                                  1736
+*legacy-prefixes-and-escapes-0                                    101061
+*legacy-prefixes-and-escapes-1                                      3982
+*segment_prefix                                                       24
+*rep_prefix                                                         1605
+*66_prefix                                                           107
+*sib                                                               15639
+*loadop                                                            22300
+*one-memops                                                        47856
+*two-memops                                                         4681
+*cond-branch-forward                                                1539
+*cond-branch-backward                                               2784
+*disp_only                                                          1552
+*index_disp                                                            8
+*base_only                                                         36861
+*base_disp                                                         14116
+*scale_1                                                           59394
+*scale_8                                                             123
+*memdisp8                                                          14404
+*memdisp32                                                          8145
+ADD                                                                  885
+AND                                                                  543
+CALL_NEAR                                                           7218
+CMP                                                                 1602
+DEC                                                                  239
+INC                                                                  204
+JB                                                                   683
+JBE                                                                  107
+JMP                                                                29794
+JMP_FAR                                                              243
+JNB                                                                  576
+JNLE                                                                 192
+JNZ                                                                 1229
+JZ                                                                  1536
+LEA                                                                 6980
+LEAVE                                                                203
+MOV                                                                15524
+MOVSW                                                                107
+MOVZX                                                                329
+NEG                                                                  965
+NOT                                                                   78
+POP                                                                 3109
+POPAD                                                                288
+POPFD                                                                107
+PUSH                                                                5422
+PUSHAD                                                               288
+PUSHFD                                                               107
+REP_MOVSD                                                           1605
+RET_NEAR                                                            7067
+SAR                                                                  214
+SBB                                                                  101
+SHR                                                                   78
+SUB                                                                 2092
+TEST                                                                 841
+XCHG                                                               14052
+XOR                                                                  435
+*total                                                            105043
+#
+# $dynamic-counts-for-function: unnamedImageEntryPoint  IMG: C:\Windows\syswow64\USP10.dll at [0x761b3fd7, 0x761da16c)  13.398%
+#
+# TID 1
+#       opcode                 count
+#
+*stack-read                                                        11193
+*stack-write                                                        9163
+*mem-read-1                                                          584
+*mem-read-2                                                         8320
+*mem-read-4                                                        12754
+*mem-write-1                                                         176
+*mem-write-2                                                        1604
+*mem-write-4                                                       10366
+*mem-read                                                          21658
+*mem-write                                                         12146
+*mem                                                               32993
+*isa-ext-BASE                                                      79735
+*isa-set-I186                                                       2258
+*isa-set-I386                                                      12768
+*isa-set-I86                                                       64709
+*category-BINARY                                                   13658
+*category-CALL                                                      1106
+*category-COND_BR                                                  10319
+*category-CONVERT                                                     12
+*category-DATAXFER                                                 30456
+*category-LOGICAL                                                   4875
+*category-MISC                                                      4324
+*category-NOP                                                        104
+*category-POP                                                       2708
+*category-PUSH                                                      5726
+*category-RET                                                        933
+*category-ROTATE                                                    1468
+*category-SETCC                                                      152
+*category-SHIFT                                                     2144
+*category-UNCOND_BR                                                 1750
+*ilen-1                                                             9673
+*ilen-2                                                            24503
+*ilen-3                                                            27711
+*ilen-4                                                            10048
+*ilen-5                                                             2923
+*ilen-6                                                             3900
+*ilen-7                                                              725
+*ilen-8                                                              144
+*ilen-10                                                             108
+*nop-ilen-1                                                          104
+*legacy-prefixes-0                                                 68556
+*legacy-prefixes-1                                                 11179
+*legacy-prefixes-and-escapes-0                                     54323
+*legacy-prefixes-and-escapes-1                                     25268
+*legacy-prefixes-and-escapes-2                                       144
+*segment_prefix                                                        3
+*66_prefix                                                         11176
+*sib                                                                4689
+*loadop                                                            15497
+*one-memops                                                        32991
+*two-memops                                                            2
+*cond-branch-forward                                                7591
+*cond-branch-backward                                               2728
+*disp_only                                                            73
+*index_disp                                                            9
+*base_only                                                         16566
+*base_disp                                                         14473
+*base_index                                                          900
+*base_index_disp                                                     972
+*scale_1                                                           32971
+*scale_2                                                            2912
+*scale_4                                                            1276
+*scale_8                                                             158
+*memdisp8                                                          15780
+*memdisp32                                                          2971
+*convert_i32_1                                                         8
+*convert_i64_4                                                         4
+ADD                                                                 3412
+AND                                                                  853
+CALL_NEAR                                                           1106
+CDQ                                                                    8
+CMP                                                                 7762
+CWDE                                                                   4
+DEC                                                                   68
+IDIV                                                                   8
+IMUL                                                                 436
+INC                                                                 1128
+JB                                                                  2020
+JBE                                                                  540
+JL                                                                   337
+JLE                                                                   40
+JMP                                                                 1750
+JNB                                                                 2524
+JNBE                                                                 364
+JNL                                                                  121
+JNLE                                                                  68
+JNS                                                                   12
+JNZ                                                                 1762
+JZ                                                                  2531
+LEA                                                                 4324
+MOV                                                                17852
+MOVSX                                                                  8
+MOVZX                                                              12596
+NEG                                                                   16
+NOP                                                                  104
+NOT                                                                    8
+OR                                                                   500
+POP                                                                 2708
+PUSH                                                                5726
+RET_NEAR                                                             933
+ROL                                                                 1468
+SAR                                                                 1496
+SBB                                                                   16
+SETLE                                                                  8
+SETNZ                                                                 32
+SETZ                                                                 112
+SHL                                                                  336
+SHR                                                                  312
+SUB                                                                  812
+TEST                                                                1945
+XOR                                                                 1569
+*total                                                             79735
+#
+# $dynamic-counts-for-function: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll at [0x75c55fc8, 0x75c56be4)   8.271%
+#
+# TID 1
+#       opcode                 count
+#
+*stack-read                                                         8474
+*stack-write                                                        5434
+*mem-read-1                                                          281
+*mem-read-4                                                        13367
+*mem-write-1                                                         146
+*mem-write-4                                                        5867
+*mem-read                                                          13648
+*mem-write                                                          6013
+*mem                                                               18141
+*isa-ext-BASE                                                      49221
+*isa-set-I186                                                        680
+*isa-set-I386                                                        244
+*isa-set-I86                                                       48297
+*category-BINARY                                                   15767
+*category-CALL                                                       439
+*category-COND_BR                                                  12686
+*category-CONVERT                                                    147
+*category-DATAXFER                                                  7861
+*category-LOGICAL                                                   3425
+*category-MISC                                                       757
+*category-NOP                                                        279
+*category-POP                                                       2370
+*category-PUSH                                                      3883
+*category-RET                                                       1238
+*category-SHIFT                                                      268
+*category-UNCOND_BR                                                  101
+*ilen-1                                                             6877
+*ilen-2                                                            23931
+*ilen-3                                                            10528
+*ilen-4                                                              821
+*ilen-5                                                             1018
+*ilen-6                                                             5108
+*ilen-7                                                              720
+*ilen-8                                                              218
+*nop-ilen-1                                                          279
+*legacy-prefixes-0                                                 48231
+*legacy-prefixes-1                                                   990
+*legacy-prefixes-and-escapes-0                                     44620
+*legacy-prefixes-and-escapes-1                                      4601
+*segment_prefix                                                      990
+*sib                                                                 906
+*loadop                                                            10867
+*one-memops                                                        16985
+*two-memops                                                         1156
+*cond-branch-forward                                                7218
+*cond-branch-backward                                               5468
+*disp_only                                                          1961
+*base_only                                                          9802
+*base_disp                                                          6244
+*base_index                                                          134
+*scale_1                                                           18771
+*memdisp8                                                           6579
+*memdisp32                                                          2256
+*convert_i32_1                                                       147
+ADC                                                                 2734
+ADD                                                                 3056
+AND                                                                  303
+CALL_NEAR                                                            439
+CDQ                                                                  147
+CMP                                                                 9327
+INC                                                                  410
+JB                                                                  2962
+JBE                                                                 2734
+JMP                                                                  101
+JNB                                                                 2865
+JNBE                                                                 168
+JNZ                                                                  475
+JZ                                                                  3482
+LEA                                                                  630
+LEAVE                                                                127
+MOV                                                                 7764
+MOVZX                                                                 97
+NOP                                                                  279
+OR                                                                    74
+POP                                                                 2370
+PUSH                                                                3883
+RET_NEAR                                                            1238
+SHL                                                                  134
+SHR                                                                  134
+SUB                                                                  240
+TEST                                                                 494
+XOR                                                                 2554
+*total                                                             49221
+#
+# $dynamic-counts-for-function: RtlQueryPerformanceCounter  IMG: C:\Windows\SysWOW64\ntdll.dll at [0x77992984, 0x77993d8d)   6.256%
+#
+# TID 1
+#       opcode                 count
+#
+*stack-read                                                         4580
+*stack-write                                                        5884
+*mem-read-1                                                         1977
+*mem-read-2                                                          877
+*mem-read-4                                                        11130
+*mem-write-1                                                         739
+*mem-write-2                                                          96
+*mem-write-4                                                        6900
+*mem-read                                                          13984
+*mem-write                                                          7735
+*mem                                                               20503
+*isa-ext-BASE                                                      37232
+*isa-set-I186                                                       1147
+*isa-set-I386                                                       1660
+*isa-set-I86                                                       34425
+*category-BINARY                                                    6278
+*category-CALL                                                       606
+*category-COND_BR                                                   5938
+*category-DATAXFER                                                 14888
+*category-LOGICAL                                                   4886
+*category-MISC                                                      1030
+*category-POP                                                        397
+*category-PUSH                                                      1320
+*category-RET                                                        407
+*category-SETCC                                                        3
+*category-SHIFT                                                     1026
+*category-UNCOND_BR                                                  453
+*ilen-1                                                             2230
+*ilen-2                                                             9758
+*ilen-3                                                            15073
+*ilen-4                                                             2316
+*ilen-5                                                             1366
+*ilen-6                                                             6034
+*ilen-7                                                              455
+*legacy-prefixes-0                                                 36867
+*legacy-prefixes-1                                                   365
+*legacy-prefixes-and-escapes-0                                     31022
+*legacy-prefixes-and-escapes-1                                      6210
+*66_prefix                                                           365
+*sib                                                                 759
+*loadop                                                             7706
+*one-memops                                                        20258
+*two-memops                                                          245
+*cond-branch-forward                                                5503
+*cond-branch-backward                                                435
+*disp_only                                                           151
+*base_only                                                          5308
+*base_disp                                                         14750
+*base_index                                                          254
+*base_index_disp                                                      40
+*scale_1                                                           21032
+*scale_4                                                             308
+*scale_8                                                             118
+*memdisp8                                                          13483
+*memdisp32                                                          1948
+ADD                                                                  749
+AND                                                                  635
+CALL_NEAR                                                            606
+CMP                                                                 3617
+DEC                                                                  424
+INC                                                                  538
+JB                                                                    62
+JLE                                                                   90
+JMP                                                                  453
+JNB                                                                  491
+JNBE                                                                 527
+JNLE                                                                  91
+JNZ                                                                 2184
+JZ                                                                  2493
+LEA                                                                  955
+LEAVE                                                                 75
+MOV                                                                13231
+MOVZX                                                               1657
+NOT                                                                  114
+OR                                                                   208
+POP                                                                  397
+PUSH                                                                1320
+RET_NEAR                                                             407
+SETZ                                                                   3
+SHL                                                                  504
+SHR                                                                  522
+SUB                                                                  950
+TEST                                                                2211
+XOR                                                                 1718
+*total                                                             37232
+#
+# $dynamic-counts-for-function: RtlLeaveCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll at [0x779822b0, 0x779822f0)   2.280%
+#
+# TID 1
+#       opcode                 count
+#
+*mem-atomic                                                          588
+*stack-read                                                         3544
+*stack-write                                                        2360
+*mem-read-4                                                         4724
+*mem-write-4                                                        4128
+*mem-read                                                           4724
+*mem-write                                                          4128
+*mem                                                                7672
+*isa-ext-BASE                                                      13568
+*isa-set-I486REAL                                                    588
+*isa-set-I86                                                       12980
+*category-BINARY                                                    1768
+*category-COND_BR                                                   1180
+*category-DATAXFER                                                  3540
+*category-LOGICAL                                                    592
+*category-MISC                                                       588
+*category-POP                                                       2360
+*category-PUSH                                                      2360
+*category-RET                                                        592
+*category-SEMAPHORE                                                  588
+*ilen-1                                                             5308
+*ilen-2                                                             2956
+*ilen-3                                                             2360
+*ilen-4                                                             1180
+*ilen-5                                                              588
+*ilen-6                                                              588
+*ilen-7                                                              588
+*legacy-prefixes-0                                                 12980
+*legacy-prefixes-1                                                   588
+*legacy-prefixes-and-escapes-0                                     12392
+*legacy-prefixes-and-escapes-1                                       588
+*legacy-prefixes-and-escapes-2                                       588
+*lock_prefix                                                         588
+*loadop                                                             6492
+*one-memops                                                         7672
+*cond-branch-forward                                                1180
+*base_only                                                          5900
+*base_disp                                                          1772
+*scale_1                                                            8260
+*memdisp8                                                           2360
+ADD                                                                  592
+CMP                                                                  588
+INC                                                                  588
+JNZ                                                                 1180
+LEA                                                                  588
+MOV                                                                 3540
+POP                                                                 2360
+PUSH                                                                2360
+RET_NEAR                                                             592
+XADD_LOCK                                                            588
+XOR                                                                  592
+*total                                                             13568
+#
+# $dynamic-counts-for-function: CtfImmDispatchDefImeMessage  IMG: C:\Windows\SysWOW64\imm32.dll at [0x7753163c, 0x77531888)   2.117%
+#
+# TID 1
+#       opcode                 count
+#
+*stack-read                                                         1238
+*stack-write                                                        1110
+*mem-read-1                                                          459
+*mem-read-2                                                          153
+*mem-read-4                                                         5089
+*mem-write-1                                                         153
+*mem-write-4                                                         957
+*mem-read                                                           5701
+*mem-write                                                          1110
+*mem                                                                6798
+*isa-ext-BASE                                                      12596
+*isa-set-I186                                                        153
+*isa-set-I386                                                        306
+*isa-set-I86                                                       12137
+*category-BINARY                                                    2296
+*category-CALL                                                        25
+*category-COND_BR                                                   2627
+*category-CONVERT                                                    153
+*category-DATAXFER                                                  4463
+*category-LOGICAL                                                   1249
+*category-NOP                                                         60
+*category-POP                                                        625
+*category-PUSH                                                       626
+*category-RET                                                        307
+*category-SHIFT                                                      153
+*category-UNCOND_BR                                                   12
+*ilen-1                                                             1771
+*ilen-2                                                             3417
+*ilen-3                                                             3520
+*ilen-4                                                              459
+*ilen-5                                                              166
+*ilen-6                                                             3110
+*ilen-7                                                              153
+*nop-ilen-1                                                           60
+*legacy-prefixes-0                                                 11984
+*legacy-prefixes-1                                                   612
+*legacy-prefixes-and-escapes-0                                      9970
+*legacy-prefixes-and-escapes-1                                      2626
+*segment_prefix                                                      459
+*66_prefix                                                           153
+*loadop                                                             3418
+*one-memops                                                         6785
+*two-memops                                                           13
+*cond-branch-forward                                                2627
+*disp_only                                                           944
+*base_only                                                          1876
+*base_disp                                                          3978
+*scale_1                                                            6798
+*memdisp8                                                           3519
+*memdisp32                                                          1403
+*convert_i32_1                                                       153
+ADD                                                                  306
+CALL_NEAR                                                             25
+CDQ                                                                  153
+CMP                                                                 1378
+IMUL                                                                 153
+JB                                                                   612
+JMP                                                                   12
+JNB                                                                  306
+JNBE                                                                 459
+JNZ                                                                  637
+JZ                                                                   613
+MOV                                                                 4310
+MOVZX                                                                153
+NOP                                                                   60
+OR                                                                   306
+POP                                                                  625
+PUSH                                                                 626
+RET_NEAR                                                             307
+SBB                                                                  153
+SHR                                                                  153
+SUB                                                                  306
+TEST                                                                 484
+XOR                                                                  459
+*total                                                             12596
+#
+# $dynamic-counts-for-function: TF_InvalidAssemblyListCacheIfExist  IMG: C:\Windows\syswow64\MSCTF.dll at [0x77095d00, 0x77097be4)   1.975%
+#
+# TID 1
+#       opcode                 count
+#
+*stack-read                                                         3033
+*stack-write                                                        2751
+*mem-read-1                                                            2
+*mem-read-2                                                           13
+*mem-read-4                                                         4433
+*mem-write-2                                                          20
+*mem-write-4                                                        3635
+*mem-read                                                           4448
+*mem-write                                                          3655
+*mem                                                                7246
+*isa-ext-BASE                                                      11753
+*isa-set-I186                                                        252
+*isa-set-I386                                                        231
+*isa-set-I86                                                       11270
+*category-BINARY                                                    1045
+*category-CALL                                                       610
+*category-COND_BR                                                    899
+*category-CONVERT                                                     12
+*category-DATAXFER                                                  3728
+*category-LOGICAL                                                    918
+*category-MISC                                                       218
+*category-POP                                                       1248
+*category-PUSH                                                      2011
+*category-RET                                                        686
+*category-SETCC                                                       16
+*category-SHIFT                                                       21
+*category-STRINGOP                                                   199
+*category-UNCOND_BR                                                  142
+*ilen-1                                                             2869
+*ilen-2                                                             3787
+*ilen-3                                                             2718
+*ilen-4                                                              380
+*ilen-5                                                              854
+*ilen-6                                                             1121
+*ilen-7                                                               24
+*legacy-prefixes-0                                                 11519
+*legacy-prefixes-1                                                   234
+*legacy-prefixes-and-escapes-0                                     10835
+*legacy-prefixes-and-escapes-1                                       918
+*rep_prefix                                                          199
+*66_prefix                                                            35
+*sib                                                                  45
+*loadop                                                             4801
+*one-memops                                                         6487
+*two-memops                                                          759
+*cond-branch-forward                                                 888
+*cond-branch-backward                                                 11
+*disp_only                                                           190
+*base_only                                                          4913
+*base_disp                                                          2120
+*base_index                                                           23
+*scale_1                                                            7387
+*scale_4                                                              23
+*memdisp8                                                           2266
+*memdisp32                                                           194
+*convert_i32_1                                                        12
+ADD                                                                  115
+AND                                                                  272
+CALL_NEAR                                                            610
+CDQ                                                                   12
+CMP                                                                  443
+DEC                                                                   81
+DIV                                                                    9
+IMUL                                                                  10
+INC                                                                   78
+JB                                                                    12
+JL                                                                    29
+JLE                                                                   22
+JMP                                                                  142
+JNBE                                                                   8
+JNL                                                                   13
+JNLE                                                                   8
+JNZ                                                                  191
+JZ                                                                   616
+LEA                                                                  164
+LEAVE                                                                 54
+MOV                                                                 3724
+MOVZX                                                                  4
+NEG                                                                  129
+OR                                                                    18
+POP                                                                 1248
+PUSH                                                                2011
+REPE_CMPSD                                                           199
+RET_NEAR                                                             686
+SAR                                                                   12
+SBB                                                                  129
+SETNZ                                                                  9
+SETZ                                                                   7
+SHL                                                                    9
+SUB                                                                   51
+TEST                                                                 329
+XOR                                                                  299
+*total                                                             11753
+#
+# $dynamic-counts-for-function: ScriptApplyDigitSubstitution  IMG: C:\Windows\syswow64\USP10.dll at [0x76188a80, 0x761963b0)   1.885%
+#
+# TID 1
+#       opcode                 count
+#
+*stack-read                                                         1789
+*stack-write                                                        1394
+*mem-read-1                                                          145
+*mem-read-2                                                          390
+*mem-read-4                                                         2843
+*mem-write-1                                                          12
+*mem-write-2                                                          52
+*mem-write-4                                                        1638
+*mem-read                                                           3378
+*mem-write                                                          1702
+*mem                                                                5002
+*isa-ext-BASE                                                      11218
+*isa-set-I186                                                        407
+*isa-set-I386                                                        552
+*isa-set-I86                                                       10259
+*category-BINARY                                                    1643
+*category-CALL                                                       202
+*category-COND_BR                                                   1648
+*category-CONVERT                                                     24
+*category-DATAXFER                                                  4034
+*category-LOGICAL                                                   1229
+*category-MISC                                                       274
+*category-NOP                                                          4
+*category-POP                                                        434
+*category-PUSH                                                       858
+*category-RET                                                        182
+*category-SETCC                                                       49
+*category-SHIFT                                                      444
+*category-UNCOND_BR                                                  193
+*ilen-1                                                             1612
+*ilen-2                                                             3739
+*ilen-3                                                             3587
+*ilen-4                                                              642
+*ilen-5                                                              574
+*ilen-6                                                              810
+*ilen-7                                                              234
+*ilen-8                                                               12
+*ilen-11                                                               8
+*nop-ilen-1                                                            4
+*legacy-prefixes-0                                                 10866
+*legacy-prefixes-1                                                   352
+*legacy-prefixes-and-escapes-0                                     10076
+*legacy-prefixes-and-escapes-1                                      1142
+*66_prefix                                                           352
+*sib                                                                1043
+*loadop                                                             2342
+*one-memops                                                         4956
+*two-memops                                                           46
+*cond-branch-forward                                                1425
+*cond-branch-backward                                                223
+*disp_only                                                            71
+*index_disp                                                           84
+*base_only                                                          1886
+*base_disp                                                          2221
+*base_index                                                          652
+*base_index_disp                                                      88
+*scale_1                                                            4429
+*scale_2                                                             272
+*scale_4                                                             345
+*scale_8                                                             230
+*memdisp8                                                           2157
+*memdisp32                                                           511
+*convert_i32_1                                                        24
+ADD                                                                  251
+AND                                                                  461
+CALL_NEAR                                                            202
+CDQ                                                                   24
+CMP                                                                  937
+DEC                                                                   40
+IMUL                                                                  16
+INC                                                                  244
+JB                                                                    48
+JBE                                                                    4
+JL                                                                   253
+JLE                                                                   49
+JMP                                                                  193
+JNB                                                                   96
+JNBE                                                                  28
+JNL                                                                  163
+JNLE                                                                  21
+JNS                                                                  134
+JNZ                                                                  255
+JS                                                                     4
+JZ                                                                   593
+LEA                                                                  274
+MOV                                                                 3555
+MOVSX                                                                 40
+MOVZX                                                                439
+NEG                                                                    4
+NOP                                                                    4
+OR                                                                     9
+POP                                                                  434
+PUSH                                                                 858
+RET_NEAR                                                             182
+SAR                                                                  202
+SBB                                                                    4
+SETL                                                                  40
+SETNZ                                                                  8
+SETZ                                                                   1
+SHL                                                                   62
+SHR                                                                  180
+SUB                                                                  147
+TEST                                                                 585
+XOR                                                                  174
+*total                                                             11218
+#
+# $dynamic-counts-for-function: GetThreadDesktop  IMG: C:\Windows\syswow64\USER32.dll at [0x75c56c63, 0x75c56ffe)   1.824%
+#
+# TID 1
+#       opcode                 count
+#
+*stack-read                                                         1675
+*stack-write                                                        2778
+*mem-read-1                                                          279
+*mem-read-2                                                           92
+*mem-read-4                                                         3594
+*mem-write-1                                                          76
+*mem-write-4                                                        3059
+*mem-read                                                           3965
+*mem-write                                                          3135
+*mem                                                                6483
+*isa-ext-BASE                                                      10854
+*isa-set-I186                                                        369
+*isa-set-I386                                                        525
+*isa-set-I86                                                        9960
+*category-BINARY                                                    1583
+*category-CALL                                                       595
+*category-COND_BR                                                   1741
+*category-CONVERT                                                     76
+*category-DATAXFER                                                  2996
+*category-LOGICAL                                                   1104
+*category-MISC                                                       202
+*category-POP                                                        464
+*category-PUSH                                                      1374
+*category-RET                                                        211
+*category-SHIFT                                                       76
+*category-STRINGOP                                                   357
+*category-UNCOND_BR                                                   75
+*ilen-1                                                             1426
+*ilen-2                                                             3175
+*ilen-3                                                             3393
+*ilen-4                                                              168
+*ilen-5                                                              746
+*ilen-6                                                             1736
+*ilen-7                                                              210
+*legacy-prefixes-0                                                 10276
+*legacy-prefixes-1                                                   578
+*legacy-prefixes-and-escapes-0                                      9142
+*legacy-prefixes-and-escapes-1                                      1712
+*segment_prefix                                                      145
+*rep_prefix                                                          357
+*66_prefix                                                            76
+*sib                                                                  15
+*loadop                                                             3574
+*one-memops                                                         5866
+*two-memops                                                          617
+*cond-branch-forward                                                1725
+*cond-branch-backward                                                 16
+*disp_only                                                           492
+*base_only                                                          2622
+*base_disp                                                          3354
+*base_index_disp                                                      15
+*scale_1                                                            6668
+*memdisp8                                                           3277
+*memdisp32                                                           769
+*convert_i32_1                                                        76
+ADD                                                                  188
+AND                                                                   16
+CALL_NEAR                                                            595
+CDQ                                                                   76
+CMP                                                                  948
+IMUL                                                                  76
+INC                                                                  125
+JB                                                                   304
+JL                                                                    15
+JMP                                                                   75
+JNB                                                                  152
+JNBE                                                                 243
+JNLE                                                                   1
+JNZ                                                                  574
+JZ                                                                   452
+LEA                                                                  185
+LEAVE                                                                 17
+MOV                                                                 2904
+MOVZX                                                                 92
+OR                                                                   203
+POP                                                                  464
+PUSH                                                                1374
+REP_STOSD                                                            357
+RET_NEAR                                                             211
+SBB                                                                   76
+SHR                                                                   76
+SUB                                                                  170
+TEST                                                                 345
+XOR                                                                  540
+*total                                                             10854
+#
+# $dynamic-counts-for-function: RtlEnterCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll at [0x779822f0, 0x7798232f)   1.811%
+#
+# TID 1
+#       opcode                 count
+#
+*mem-atomic                                                          515
+*stack-read                                                         2559
+*stack-write                                                        1545
+*mem-read-4                                                         4096
+*mem-write-4                                                        3082
+*mem-read                                                           4096
+*mem-write                                                          3082
+*mem                                                                6663
+*isa-ext-BASE                                                      10775
+*isa-set-I386                                                        515
+*isa-set-I86                                                       10260
+*category-BINARY                                                     515
+*category-BITBYTE                                                    515
+*category-COND_BR                                                    515
+*category-DATAXFER                                                  4615
+*category-LOGICAL                                                    511
+*category-MISC                                                       515
+*category-POP                                                       1533
+*category-PUSH                                                      1545
+*category-RET                                                        511
+*ilen-1                                                             3078
+*ilen-2                                                             2567
+*ilen-3                                                             3078
+*ilen-5                                                              515
+*ilen-6                                                             1026
+*ilen-7                                                              511
+*legacy-prefixes-0                                                  9749
+*legacy-prefixes-1                                                  1026
+*legacy-prefixes-and-escapes-0                                      9234
+*legacy-prefixes-and-escapes-1                                      1026
+*legacy-prefixes-and-escapes-2                                       515
+*segment_prefix                                                      511
+*lock_prefix                                                         515
+*loadop                                                             4104
+*one-memops                                                         6663
+*cond-branch-forward                                                 515
+*disp_only                                                           511
+*base_only                                                          4104
+*base_disp                                                          2048
+*scale_1                                                            7178
+*memdisp8                                                           2563
+*memdisp32                                                           511
+BTR_LOCK                                                             515
+JNB                                                                  515
+LEA                                                                  515
+MOV                                                                 4615
+POP                                                                 1533
+PUSH                                                                1545
+RET_NEAR                                                             511
+SUB                                                                  515
+XOR                                                                  511
+*total                                                             10775
+# END_PER_FUNCTION_STATS 
+# EMIT_GLOBAL_TOP_BLOCK_STATS EVENT=ICOUNT
+BLOCK:     0   PC: 761d9440   ICOUNT:      8064   EXECUTIONS:       672   #BYTES: 38   %:  1.36   cumltv%:  1.36  FN: unnamedImageEntryPoint  IMG: C:\Windows\syswow64\USP10.dll  OFFSET: 59440
+XDIS 761d9440: BASE 0FB7C7                   movzx eax, di
+XDIS 761d9443: BASE 0FB7CA                   movzx ecx, dx
+XDIS 761d9446: BASE 03C8                     add ecx, eax
+XDIS 761d9448: BASE D1F9                     sar ecx, 0x1
+XDIS 761d944a: BASE 0FB7C9                   movzx ecx, cx
+XDIS 761d944d: BASE 0FB7C1                   movzx eax, cx
+XDIS 761d9450: BASE 8D0440                   lea eax, ptr [eax+eax*2]
+XDIS 761d9453: BASE 668B5C4604               mov bx, word ptr [esi+eax*2+0x4]
+XDIS 761d9458: BASE 8D444604                 lea eax, ptr [esi+eax*2+0x4]
+XDIS 761d945c: BASE 66C1C308                 rol bx, 0x8
+XDIS 761d9460: BASE 66395D08                 cmp word ptr [ebp+0x8], bx
+XDIS 761d9464: BASE 7305                     jnb 0x761d946b
+
+BLOCK:     1   PC: 75c5628f   ICOUNT:      7435   EXECUTIONS:      1487   #BYTES: 12   %:  1.25   cumltv%:   2.6  FN: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll  OFFSET: 1628f
+XDIS 75c5628f: BASE 83C008                   add eax, 0x8
+XDIS 75c56292: BASE 83D200                   adc edx, 0x0
+XDIS 75c56295: BASE 33DB                     xor ebx, ebx
+XDIS 75c56297: BASE 3BD3                     cmp edx, ebx
+XDIS 75c56299: BASE 72E9                     jb 0x75c56284
+
+BLOCK:     2   PC: 761cffb7   ICOUNT:      7400   EXECUTIONS:       740   #BYTES: 29   %:  1.24   cumltv%:  3.85  FN: unnamedImageEntryPoint  IMG: C:\Windows\syswow64\USP10.dll  OFFSET: 4ffb7
+XDIS 761cffb7: BASE 0FB7D7                   movzx edx, di
+XDIS 761cffba: BASE 0FB7CE                   movzx ecx, si
+XDIS 761cffbd: BASE 03CA                     add ecx, edx
+XDIS 761cffbf: BASE D1F9                     sar ecx, 0x1
+XDIS 761cffc1: BASE 0FB7C1                   movzx eax, cx
+XDIS 761cffc4: BASE 0FB7C8                   movzx ecx, ax
+XDIS 761cffc7: BASE 8D548B06                 lea edx, ptr [ebx+ecx*4+0x6]
+XDIS 761cffcb: BASE 0FB70A                   movzx ecx, word ptr [edx]
+XDIS 761cffce: BASE 66394D08                 cmp word ptr [ebp+0x8], cx
+XDIS 761cffd2: BASE 7305                     jnb 0x761cffd9
+
+BLOCK:     3   PC: 779822bf   ICOUNT:      5880   EXECUTIONS:       588   #BYTES: 33   %: 0.988   cumltv%:  4.84  FN: RtlLeaveCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll  OFFSET: 222bf
+XDIS 779822bf: BASE 53                       push ebx
+XDIS 779822c0: BASE 57                       push edi
+XDIS 779822c1: BASE 8D7E04                   lea edi, ptr [esi+0x4]
+XDIS 779822c4: BASE C7460C00000000           mov dword ptr [esi+0xc], 0x0
+XDIS 779822cb: BASE BB01000000               mov ebx, 0x1
+XDIS 779822d0: BASE 8BC7                     mov eax, edi
+XDIS 779822d2: BASE F00FC118                 lock xadd dword ptr [eax], ebx
+XDIS 779822d6: BASE 43                       inc ebx
+XDIS 779822d7: BASE 83FBFF                   cmp ebx, 0xffffffff
+XDIS 779822da: BASE 0F8569C90200             jnz 0x779aec49
+
+BLOCK:     4   PC: 755073c4   ICOUNT:      5880   EXECUTIONS:       280   #BYTES: 69   %: 0.988   cumltv%:  5.82  FN: IsNLSDefinedString  IMG: C:\Windows\syswow64\KERNELBASE.dll  OFFSET: 373c4
+XDIS 755073c4: BASE 6830745075               push 0x75507430
+XDIS 755073c9: BASE 64FF3500000000           push dword ptr fs:[0x0]
+XDIS 755073d0: BASE 8B442410                 mov eax, dword ptr [esp+0x10]
+XDIS 755073d4: BASE 896C2410                 mov dword ptr [esp+0x10], ebp
+XDIS 755073d8: BASE 8D6C2410                 lea ebp, ptr [esp+0x10]
+XDIS 755073dc: BASE 2BE0                     sub esp, eax
+XDIS 755073de: BASE 53                       push ebx
+XDIS 755073df: BASE 56                       push esi
+XDIS 755073e0: BASE 57                       push edi
+XDIS 755073e1: BASE A140125175               mov eax, dword ptr [0x75511240]
+XDIS 755073e6: BASE 3145FC                   xor dword ptr [ebp-0x4], eax
+XDIS 755073e9: BASE 33C5                     xor eax, ebp
+XDIS 755073eb: BASE 50                       push eax
+XDIS 755073ec: BASE 8965E8                   mov dword ptr [ebp-0x18], esp
+XDIS 755073ef: BASE FF75F8                   push dword ptr [ebp-0x8]
+XDIS 755073f2: BASE 8B45FC                   mov eax, dword ptr [ebp-0x4]
+XDIS 755073f5: BASE C745FCFEFFFFFF           mov dword ptr [ebp-0x4], 0xfffffffe
+XDIS 755073fc: BASE 8945F8                   mov dword ptr [ebp-0x8], eax
+XDIS 755073ff: BASE 8D45F0                   lea eax, ptr [ebp-0x10]
+XDIS 75507402: BASE 64A300000000             mov dword ptr fs:[0x0], eax
+XDIS 75507408: BASE C3                       ret 
+
+BLOCK:     5   PC: 779822f0   ICOUNT:      5665   EXECUTIONS:       515   #BYTES: 29   %: 0.952   cumltv%:  6.78  FN: RtlEnterCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll  OFFSET: 222f0
+XDIS 779822f0: BASE 8BFF                     mov edi, edi
+XDIS 779822f2: BASE 55                       push ebp
+XDIS 779822f3: BASE 8BEC                     mov ebp, esp
+XDIS 779822f5: BASE 83EC0C                   sub esp, 0xc
+XDIS 779822f8: BASE 56                       push esi
+XDIS 779822f9: BASE 57                       push edi
+XDIS 779822fa: BASE 8B7D08                   mov edi, dword ptr [ebp+0x8]
+XDIS 779822fd: BASE 8D7704                   lea esi, ptr [edi+0x4]
+XDIS 77982300: BASE 8BC6                     mov eax, esi
+XDIS 77982302: BASE F00FBA3000               lock btr dword ptr [eax], 0x0
+XDIS 77982307: BASE 0F83FE020100             jnb 0x7799260b
+
+BLOCK:     6   PC: 7798230d   ICOUNT:      5110   EXECUTIONS:       511   #BYTES: 29   %: 0.859   cumltv%:  7.63  FN: RtlEnterCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll  OFFSET: 2230d
+XDIS 7798230d: BASE 64A118000000             mov eax, dword ptr fs:[0x18]
+XDIS 77982313: BASE 8B4824                   mov ecx, dword ptr [eax+0x24]
+XDIS 77982316: BASE 894F0C                   mov dword ptr [edi+0xc], ecx
+XDIS 77982319: BASE C7470801000000           mov dword ptr [edi+0x8], 0x1
+XDIS 77982320: BASE 5F                       pop edi
+XDIS 77982321: BASE 33C0                     xor eax, eax
+XDIS 77982323: BASE 5E                       pop esi
+XDIS 77982324: BASE 8BE5                     mov esp, ebp
+XDIS 77982326: BASE 5D                       pop ebp
+XDIS 77982327: BASE C20400                   ret 0x4
+
+BLOCK:     7   PC: 75c562bf   ICOUNT:      4988   EXECUTIONS:      1247   #BYTES:  9   %: 0.838   cumltv%:  8.47  FN: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll  OFFSET: 162bf
+XDIS 75c562bf: BASE 83C008                   add eax, 0x8
+XDIS 75c562c2: BASE 13D6                     adc edx, esi
+XDIS 75c562c4: BASE 3BD6                     cmp edx, esi
+XDIS 75c562c6: BASE 72EC                     jb 0x75c562b4
+
+BLOCK:     8   PC: 75c56125   ICOUNT:      4578   EXECUTIONS:       218   #BYTES: 69   %: 0.769   cumltv%:  9.24  FN: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll  OFFSET: 16125
+XDIS 75c56125: BASE 681EA6CB75               push 0x75cba61e
+XDIS 75c5612a: BASE 64FF3500000000           push dword ptr fs:[0x0]
+XDIS 75c56131: BASE 8B442410                 mov eax, dword ptr [esp+0x10]
+XDIS 75c56135: BASE 896C2410                 mov dword ptr [esp+0x10], ebp
+XDIS 75c56139: BASE 8D6C2410                 lea ebp, ptr [esp+0x10]
+XDIS 75c5613d: BASE 2BE0                     sub esp, eax
+XDIS 75c5613f: BASE 53                       push ebx
+XDIS 75c56140: BASE 56                       push esi
+XDIS 75c56141: BASE 57                       push edi
+XDIS 75c56142: BASE A12007CC75               mov eax, dword ptr [0x75cc0720]
+XDIS 75c56147: BASE 3145FC                   xor dword ptr [ebp-0x4], eax
+XDIS 75c5614a: BASE 33C5                     xor eax, ebp
+XDIS 75c5614c: BASE 50                       push eax
+XDIS 75c5614d: BASE 8965E8                   mov dword ptr [ebp-0x18], esp
+XDIS 75c56150: BASE FF75F8                   push dword ptr [ebp-0x8]
+XDIS 75c56153: BASE 8B45FC                   mov eax, dword ptr [ebp-0x4]
+XDIS 75c56156: BASE C745FCFEFFFFFF           mov dword ptr [ebp-0x4], 0xfffffffe
+XDIS 75c5615d: BASE 8945F8                   mov dword ptr [ebp-0x8], eax
+XDIS 75c56160: BASE 8D45F0                   lea eax, ptr [ebp-0x10]
+XDIS 75c56163: BASE 64A300000000             mov dword ptr fs:[0x0], eax
+XDIS 75c56169: BASE C3                       ret 
+
+BLOCK:     9   PC: 75c56284   ICOUNT:      4512   EXECUTIONS:      1504   #BYTES: 11   %: 0.758   cumltv%:    10  FN: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll  OFFSET: 16284
+XDIS 75c56284: BASE 8B5D08                   mov ebx, dword ptr [ebp+0x8]
+XDIS 75c56287: BASE 3B18                     cmp ebx, dword ptr [eax]
+XDIS 75c56289: BASE 0F84101E0100             jz 0x75c6809f
+
+BLOCK:    10   PC: 779822b0   ICOUNT:      4144   EXECUTIONS:       592   #BYTES: 15   %: 0.696   cumltv%:  10.7  FN: RtlLeaveCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll  OFFSET: 222b0
+XDIS 779822b0: BASE 8BFF                     mov edi, edi
+XDIS 779822b2: BASE 55                       push ebp
+XDIS 779822b3: BASE 8BEC                     mov ebp, esp
+XDIS 779822b5: BASE 56                       push esi
+XDIS 779822b6: BASE 8B7508                   mov esi, dword ptr [ebp+0x8]
+XDIS 779822b9: BASE 834608FF                 add dword ptr [esi+0x8], 0xffffffff
+XDIS 779822bd: BASE 7523                     jnz 0x779822e2
+
+BLOCK:    11   PC: 75c562b4   ICOUNT:      3765   EXECUTIONS:      1255   #BYTES: 11   %: 0.633   cumltv%:  11.3  FN: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll  OFFSET: 162b4
+XDIS 75c562b4: BASE 8B5D08                   mov ebx, dword ptr [ebp+0x8]
+XDIS 75c562b7: BASE 3B18                     cmp ebx, dword ptr [eax]
+XDIS 75c562b9: BASE 0F8497200000             jz 0x75c58356
+
+BLOCK:    12   PC: 75c56280   ICOUNT:      3122   EXECUTIONS:      1561   #BYTES:  4   %: 0.525   cumltv%:  11.9  FN: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll  OFFSET: 16280
+XDIS 75c56280: BASE 3BC7                     cmp eax, edi
+XDIS 75c56282: BASE 7319                     jnb 0x75c5629d
+
+BLOCK:    13   PC: 75507409   ICOUNT:      3080   EXECUTIONS:       280   #BYTES: 20   %: 0.518   cumltv%:  12.4  FN: IsNLSDefinedString  IMG: C:\Windows\syswow64\KERNELBASE.dll  OFFSET: 37409
+XDIS 75507409: BASE 8B4DF0                   mov ecx, dword ptr [ebp-0x10]
+XDIS 7550740c: BASE 64890D00000000           mov dword ptr fs:[0x0], ecx
+XDIS 75507413: BASE 59                       pop ecx
+XDIS 75507414: BASE 5F                       pop edi
+XDIS 75507415: BASE 5F                       pop edi
+XDIS 75507416: BASE 5E                       pop esi
+XDIS 75507417: BASE 5B                       pop ebx
+XDIS 75507418: BASE 8BE5                     mov esp, ebp
+XDIS 7550741a: BASE 5D                       pop ebp
+XDIS 7550741b: BASE 51                       push ecx
+XDIS 7550741c: BASE C3                       ret 
+
+BLOCK:    14   PC: 773c3764   ICOUNT:      3054   EXECUTIONS:       509   #BYTES: 16   %: 0.513   cumltv%:  12.9  FN: fcloseall  IMG: C:\Windows\syswow64\msvcrt.dll  OFFSET: 13764
+XDIS 773c3764: BASE 8BF7                     mov esi, edi
+XDIS 773c3766: BASE C1E602                   shl esi, 0x2
+XDIS 773c3769: BASE A1E0044577               mov eax, dword ptr [0x774504e0]
+XDIS 773c376e: BASE 03C6                     add eax, esi
+XDIS 773c3770: BASE 3918                     cmp dword ptr [eax], ebx
+XDIS 773c3772: BASE 7520                     jnz 0x773c3794
+
+BLOCK:    15   PC: 775316a0   ICOUNT:      2907   EXECUTIONS:       153   #BYTES: 59   %: 0.488   cumltv%:  13.4  FN: CtfImmDispatchDefImeMessage  IMG: C:\Windows\SysWOW64\imm32.dll  OFFSET: 116a0
+XDIS 775316a0: BASE 8BFF                     mov edi, edi
+XDIS 775316a2: BASE 55                       push ebp
+XDIS 775316a3: BASE 8BEC                     mov ebp, esp
+XDIS 775316a5: BASE 83EC10                   sub esp, 0x10
+XDIS 775316a8: BASE 64A118000000             mov eax, dword ptr fs:[0x18]
+XDIS 775316ae: BASE 53                       push ebx
+XDIS 775316af: BASE 56                       push esi
+XDIS 775316b0: BASE 8BB0700F0000             mov esi, dword ptr [eax+0xf70]
+XDIS 775316b6: BASE 8855FC                   mov byte ptr [ebp-0x4], dl
+XDIS 775316b9: BASE 8B1530005577             mov edx, dword ptr [0x77550030]
+XDIS 775316bf: BASE 57                       push edi
+XDIS 775316c0: BASE 33C0                     xor eax, eax
+XDIS 775316c2: BASE 33DB                     xor ebx, ebx
+XDIS 775316c4: BASE 33FF                     xor edi, edi
+XDIS 775316c6: BASE 81C600080000             add esi, 0x800
+XDIS 775316cc: BASE 894DF8                   mov dword ptr [ebp-0x8], ecx
+XDIS 775316cf: BASE 0FB7C9                   movzx ecx, cx
+XDIS 775316d2: BASE 3B420C                   cmp eax, dword ptr [edx+0xc]
+XDIS 775316d5: BASE 0F8782000000             jnbe 0x7753175d
+
+BLOCK:    16   PC: 77998546   ICOUNT:      2808   EXECUTIONS:       312   #BYTES: 25   %: 0.472   cumltv%:  13.8  FN: RtlLockHeap  IMG: C:\Windows\SysWOW64\ntdll.dll  OFFSET: 38546
+XDIS 77998546: BASE 8BFF                     mov edi, edi
+XDIS 77998548: BASE 55                       push ebp
+XDIS 77998549: BASE 8BEC                     mov ebp, esp
+XDIS 7799854b: BASE 56                       push esi
+XDIS 7799854c: BASE 8B7508                   mov esi, dword ptr [ebp+0x8]
+XDIS 7799854f: BASE 57                       push edi
+XDIS 77998550: BASE 8D7E64                   lea edi, ptr [esi+0x64]
+XDIS 77998553: BASE 813FFFEEFFEE             cmp dword ptr [edi], 0xeeffeeff
+XDIS 77998559: BASE 0F85E44C0500             jnz 0x779ed243
+
+BLOCK:    17   PC: 75c562b0   ICOUNT:      2608   EXECUTIONS:      1304   #BYTES:  4   %: 0.438   cumltv%:  14.3  FN: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll  OFFSET: 162b0
+XDIS 75c562b0: BASE 3BC1                     cmp eax, ecx
+XDIS 75c562b2: BASE 7316                     jnb 0x75c562ca
+
+BLOCK:    18   PC: 779822e2   ICOUNT:      2368   EXECUTIONS:       592   #BYTES:  7   %: 0.398   cumltv%:  14.7  FN: RtlLeaveCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll  OFFSET: 222e2
+XDIS 779822e2: BASE 33C0                     xor eax, eax
+XDIS 779822e4: BASE 5E                       pop esi
+XDIS 779822e5: BASE 5D                       pop ebp
+XDIS 779822e6: BASE C20400                   ret 0x4
+
+BLOCK:    19   PC: 75c5616a   ICOUNT:      2365   EXECUTIONS:       215   #BYTES: 20   %: 0.397   cumltv%:  15.1  FN: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll  OFFSET: 1616a
+XDIS 75c5616a: BASE 8B4DF0                   mov ecx, dword ptr [ebp-0x10]
+XDIS 75c5616d: BASE 64890D00000000           mov dword ptr fs:[0x0], ecx
+XDIS 75c56174: BASE 59                       pop ecx
+XDIS 75c56175: BASE 5F                       pop edi
+XDIS 75c56176: BASE 5F                       pop edi
+XDIS 75c56177: BASE 5E                       pop esi
+XDIS 75c56178: BASE 5B                       pop ebx
+XDIS 75c56179: BASE 8BE5                     mov esp, ebp
+XDIS 75c5617b: BASE 5D                       pop ebp
+XDIS 75c5617c: BASE 51                       push ecx
+XDIS 75c5617d: BASE C3                       ret 
+
+# END_TOP_BLOCK_STATS
+# EMIT_GLOBAL_DYNAMIC_STATS
+#
+# $dynamic-counts
+#
+# TID 0
+#       opcode                 count
+#
+*total                                                                 0
+# END_DYNAMIC_STATS
+#GLOBAL FUNCTION TOTALS
+#rank total-icount     %   cumulative%   #times-called    address  function-name    image-name
+   0:       105043  17.651  17.651             0                 1 NO_image_information
+   1:        79735  13.398  31.049             1          761b3fd7 unnamedImageEntryPoint  IMG: C:\Windows\syswow64\USP10.dll
+   2:        49221   8.271  39.319             0          75c55fc8 gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll
+   3:        37232   6.256  45.576             0          77992984 RtlQueryPerformanceCounter  IMG: C:\Windows\SysWOW64\ntdll.dll
+   4:        13568   2.280  47.855           592          779822b0 RtlLeaveCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll
+   5:        12596   2.117  49.972            12          7753163c CtfImmDispatchDefImeMessage  IMG: C:\Windows\SysWOW64\imm32.dll
+   6:        11753   1.975  51.947            46          77095d00 TF_InvalidAssemblyListCacheIfExist  IMG: C:\Windows\syswow64\MSCTF.dll
+   7:        11218   1.885  53.832             4          76188a80 ScriptApplyDigitSubstitution  IMG: C:\Windows\syswow64\USP10.dll
+   8:        10854   1.824  55.656             0          75c56c63 GetThreadDesktop  IMG: C:\Windows\syswow64\USER32.dll
+   9:        10775   1.811  57.466           515          779822f0 RtlEnterCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll
+               595124 TOTAL
+# END FUNCTION TOTALS
+# EMIT_PER_FUNCTION_STATS FOR TID 0  OS-TID 0 EMIT# 1
+#
+# $dynamic-counts-for-function: NO_image_information at [0x1, 0x2)  17.651%
+#
+# TID 0
+#       opcode                 count
+#
+*mem-atomic                                                        12900
+*stack-read                                                        28840
+*stack-write                                                       28410
+*mem-read-1                                                          441
+*mem-read-2                                                          185
+*mem-read-4                                                        36853
+*mem-read-32                                                         288
+*mem-write-1                                                         179
+*mem-write-2                                                         107
+*mem-write-4                                                       32029
+*mem-write-32                                                        288
+*mem-read                                                          37767
+*mem-write                                                         32603
+*mem                                                               52537
+*isa-ext-BASE                                                     105043
+*isa-set-I186                                                        753
+*isa-set-I386                                                       2724
+*isa-set-I86                                                      101566
+*category-BINARY                                                    6088
+*category-CALL                                                      7218
+*category-COND_BR                                                   4323
+*category-DATAXFER                                                 29905
+*category-LOGICAL                                                   1897
+*category-MISC                                                      7183
+*category-POP                                                       3504
+*category-PUSH                                                      5817
+*category-RET                                                       7067
+*category-SHIFT                                                      292
+*category-STRINGOP                                                  1712
+*category-UNCOND_BR                                                30037
+*ilen-1                                                            13784
+*ilen-2                                                            11036
+*ilen-3                                                            26316
+*ilen-4                                                             3336
+*ilen-5                                                            38589
+*ilen-6                                                            11481
+*ilen-7                                                              501
+*legacy-prefixes-0                                                103307
+*legacy-prefixes-1                                                  1736
+*legacy-prefixes-and-escapes-0                                    101061
+*legacy-prefixes-and-escapes-1                                      3982
+*segment_prefix                                                       24
+*rep_prefix                                                         1605
+*66_prefix                                                           107
+*sib                                                               15639
+*loadop                                                            22300
+*one-memops                                                        47856
+*two-memops                                                         4681
+*cond-branch-forward                                                1539
+*cond-branch-backward                                               2784
+*disp_only                                                          1552
+*index_disp                                                            8
+*base_only                                                         36861
+*base_disp                                                         14116
+*scale_1                                                           59394
+*scale_8                                                             123
+*memdisp8                                                          14404
+*memdisp32                                                          8145
+ADD                                                                  885
+AND                                                                  543
+CALL_NEAR                                                           7218
+CMP                                                                 1602
+DEC                                                                  239
+INC                                                                  204
+JB                                                                   683
+JBE                                                                  107
+JMP                                                                29794
+JMP_FAR                                                              243
+JNB                                                                  576
+JNLE                                                                 192
+JNZ                                                                 1229
+JZ                                                                  1536
+LEA                                                                 6980
+LEAVE                                                                203
+MOV                                                                15524
+MOVSW                                                                107
+MOVZX                                                                329
+NEG                                                                  965
+NOT                                                                   78
+POP                                                                 3109
+POPAD                                                                288
+POPFD                                                                107
+PUSH                                                                5422
+PUSHAD                                                               288
+PUSHFD                                                               107
+REP_MOVSD                                                           1605
+RET_NEAR                                                            7067
+SAR                                                                  214
+SBB                                                                  101
+SHR                                                                   78
+SUB                                                                 2092
+TEST                                                                 841
+XCHG                                                               14052
+XOR                                                                  435
+*total                                                            105043
+#
+# $dynamic-counts-for-function: unnamedImageEntryPoint  IMG: C:\Windows\syswow64\USP10.dll at [0x761b3fd7, 0x761da16c)  13.398%
+#
+# TID 0
+#       opcode                 count
+#
+*stack-read                                                        11193
+*stack-write                                                        9163
+*mem-read-1                                                          584
+*mem-read-2                                                         8320
+*mem-read-4                                                        12754
+*mem-write-1                                                         176
+*mem-write-2                                                        1604
+*mem-write-4                                                       10366
+*mem-read                                                          21658
+*mem-write                                                         12146
+*mem                                                               32993
+*isa-ext-BASE                                                      79735
+*isa-set-I186                                                       2258
+*isa-set-I386                                                      12768
+*isa-set-I86                                                       64709
+*category-BINARY                                                   13658
+*category-CALL                                                      1106
+*category-COND_BR                                                  10319
+*category-CONVERT                                                     12
+*category-DATAXFER                                                 30456
+*category-LOGICAL                                                   4875
+*category-MISC                                                      4324
+*category-NOP                                                        104
+*category-POP                                                       2708
+*category-PUSH                                                      5726
+*category-RET                                                        933
+*category-ROTATE                                                    1468
+*category-SETCC                                                      152
+*category-SHIFT                                                     2144
+*category-UNCOND_BR                                                 1750
+*ilen-1                                                             9673
+*ilen-2                                                            24503
+*ilen-3                                                            27711
+*ilen-4                                                            10048
+*ilen-5                                                             2923
+*ilen-6                                                             3900
+*ilen-7                                                              725
+*ilen-8                                                              144
+*ilen-10                                                             108
+*nop-ilen-1                                                          104
+*legacy-prefixes-0                                                 68556
+*legacy-prefixes-1                                                 11179
+*legacy-prefixes-and-escapes-0                                     54323
+*legacy-prefixes-and-escapes-1                                     25268
+*legacy-prefixes-and-escapes-2                                       144
+*segment_prefix                                                        3
+*66_prefix                                                         11176
+*sib                                                                4689
+*loadop                                                            15497
+*one-memops                                                        32991
+*two-memops                                                            2
+*cond-branch-forward                                                7591
+*cond-branch-backward                                               2728
+*disp_only                                                            73
+*index_disp                                                            9
+*base_only                                                         16566
+*base_disp                                                         14473
+*base_index                                                          900
+*base_index_disp                                                     972
+*scale_1                                                           32971
+*scale_2                                                            2912
+*scale_4                                                            1276
+*scale_8                                                             158
+*memdisp8                                                          15780
+*memdisp32                                                          2971
+*convert_i32_1                                                         8
+*convert_i64_4                                                         4
+ADD                                                                 3412
+AND                                                                  853
+CALL_NEAR                                                           1106
+CDQ                                                                    8
+CMP                                                                 7762
+CWDE                                                                   4
+DEC                                                                   68
+IDIV                                                                   8
+IMUL                                                                 436
+INC                                                                 1128
+JB                                                                  2020
+JBE                                                                  540
+JL                                                                   337
+JLE                                                                   40
+JMP                                                                 1750
+JNB                                                                 2524
+JNBE                                                                 364
+JNL                                                                  121
+JNLE                                                                  68
+JNS                                                                   12
+JNZ                                                                 1762
+JZ                                                                  2531
+LEA                                                                 4324
+MOV                                                                17852
+MOVSX                                                                  8
+MOVZX                                                              12596
+NEG                                                                   16
+NOP                                                                  104
+NOT                                                                    8
+OR                                                                   500
+POP                                                                 2708
+PUSH                                                                5726
+RET_NEAR                                                             933
+ROL                                                                 1468
+SAR                                                                 1496
+SBB                                                                   16
+SETLE                                                                  8
+SETNZ                                                                 32
+SETZ                                                                 112
+SHL                                                                  336
+SHR                                                                  312
+SUB                                                                  812
+TEST                                                                1945
+XOR                                                                 1569
+*total                                                             79735
+#
+# $dynamic-counts-for-function: gapfnScSendMessage  IMG: C:\Windows\syswow64\USER32.dll at [0x75c55fc8, 0x75c56be4)   8.271%
+#
+# TID 0
+#       opcode                 count
+#
+*stack-read                                                         8474
+*stack-write                                                        5434
+*mem-read-1                                                          281
+*mem-read-4                                                        13367
+*mem-write-1                                                         146
+*mem-write-4                                                        5867
+*mem-read                                                          13648
+*mem-write                                                          6013
+*mem                                                               18141
+*isa-ext-BASE                                                      49221
+*isa-set-I186                                                        680
+*isa-set-I386                                                        244
+*isa-set-I86                                                       48297
+*category-BINARY                                                   15767
+*category-CALL                                                       439
+*category-COND_BR                                                  12686
+*category-CONVERT                                                    147
+*category-DATAXFER                                                  7861
+*category-LOGICAL                                                   3425
+*category-MISC                                                       757
+*category-NOP                                                        279
+*category-POP                                                       2370
+*category-PUSH                                                      3883
+*category-RET                                                       1238
+*category-SHIFT                                                      268
+*category-UNCOND_BR                                                  101
+*ilen-1                                                             6877
+*ilen-2                                                            23931
+*ilen-3                                                            10528
+*ilen-4                                                              821
+*ilen-5                                                             1018
+*ilen-6                                                             5108
+*ilen-7                                                              720
+*ilen-8                                                              218
+*nop-ilen-1                                                          279
+*legacy-prefixes-0                                                 48231
+*legacy-prefixes-1                                                   990
+*legacy-prefixes-and-escapes-0                                     44620
+*legacy-prefixes-and-escapes-1                                      4601
+*segment_prefix                                                      990
+*sib                                                                 906
+*loadop                                                            10867
+*one-memops                                                        16985
+*two-memops                                                         1156
+*cond-branch-forward                                                7218
+*cond-branch-backward                                               5468
+*disp_only                                                          1961
+*base_only                                                          9802
+*base_disp                                                          6244
+*base_index                                                          134
+*scale_1                                                           18771
+*memdisp8                                                           6579
+*memdisp32                                                          2256
+*convert_i32_1                                                       147
+ADC                                                                 2734
+ADD                                                                 3056
+AND                                                                  303
+CALL_NEAR                                                            439
+CDQ                                                                  147
+CMP                                                                 9327
+INC                                                                  410
+JB                                                                  2962
+JBE                                                                 2734
+JMP                                                                  101
+JNB                                                                 2865
+JNBE                                                                 168
+JNZ                                                                  475
+JZ                                                                  3482
+LEA                                                                  630
+LEAVE                                                                127
+MOV                                                                 7764
+MOVZX                                                                 97
+NOP                                                                  279
+OR                                                                    74
+POP                                                                 2370
+PUSH                                                                3883
+RET_NEAR                                                            1238
+SHL                                                                  134
+SHR                                                                  134
+SUB                                                                  240
+TEST                                                                 494
+XOR                                                                 2554
+*total                                                             49221
+#
+# $dynamic-counts-for-function: RtlQueryPerformanceCounter  IMG: C:\Windows\SysWOW64\ntdll.dll at [0x77992984, 0x77993d8d)   6.256%
+#
+# TID 0
+#       opcode                 count
+#
+*stack-read                                                         4580
+*stack-write                                                        5884
+*mem-read-1                                                         1977
+*mem-read-2                                                          877
+*mem-read-4                                                        11130
+*mem-write-1                                                         739
+*mem-write-2                                                          96
+*mem-write-4                                                        6900
+*mem-read                                                          13984
+*mem-write                                                          7735
+*mem                                                               20503
+*isa-ext-BASE                                                      37232
+*isa-set-I186                                                       1147
+*isa-set-I386                                                       1660
+*isa-set-I86                                                       34425
+*category-BINARY                                                    6278
+*category-CALL                                                       606
+*category-COND_BR                                                   5938
+*category-DATAXFER                                                 14888
+*category-LOGICAL                                                   4886
+*category-MISC                                                      1030
+*category-POP                                                        397
+*category-PUSH                                                      1320
+*category-RET                                                        407
+*category-SETCC                                                        3
+*category-SHIFT                                                     1026
+*category-UNCOND_BR                                                  453
+*ilen-1                                                             2230
+*ilen-2                                                             9758
+*ilen-3                                                            15073
+*ilen-4                                                             2316
+*ilen-5                                                             1366
+*ilen-6                                                             6034
+*ilen-7                                                              455
+*legacy-prefixes-0                                                 36867
+*legacy-prefixes-1                                                   365
+*legacy-prefixes-and-escapes-0                                     31022
+*legacy-prefixes-and-escapes-1                                      6210
+*66_prefix                                                           365
+*sib                                                                 759
+*loadop                                                             7706
+*one-memops                                                        20258
+*two-memops                                                          245
+*cond-branch-forward                                                5503
+*cond-branch-backward                                                435
+*disp_only                                                           151
+*base_only                                                          5308
+*base_disp                                                         14750
+*base_index                                                          254
+*base_index_disp                                                      40
+*scale_1                                                           21032
+*scale_4                                                             308
+*scale_8                                                             118
+*memdisp8                                                          13483
+*memdisp32                                                          1948
+ADD                                                                  749
+AND                                                                  635
+CALL_NEAR                                                            606
+CMP                                                                 3617
+DEC                                                                  424
+INC                                                                  538
+JB                                                                    62
+JLE                                                                   90
+JMP                                                                  453
+JNB                                                                  491
+JNBE                                                                 527
+JNLE                                                                  91
+JNZ                                                                 2184
+JZ                                                                  2493
+LEA                                                                  955
+LEAVE                                                                 75
+MOV                                                                13231
+MOVZX                                                               1657
+NOT                                                                  114
+OR                                                                   208
+POP                                                                  397
+PUSH                                                                1320
+RET_NEAR                                                             407
+SETZ                                                                   3
+SHL                                                                  504
+SHR                                                                  522
+SUB                                                                  950
+TEST                                                                2211
+XOR                                                                 1718
+*total                                                             37232
+#
+# $dynamic-counts-for-function: RtlLeaveCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll at [0x779822b0, 0x779822f0)   2.280%
+#
+# TID 0
+#       opcode                 count
+#
+*mem-atomic                                                          588
+*stack-read                                                         3544
+*stack-write                                                        2360
+*mem-read-4                                                         4724
+*mem-write-4                                                        4128
+*mem-read                                                           4724
+*mem-write                                                          4128
+*mem                                                                7672
+*isa-ext-BASE                                                      13568
+*isa-set-I486REAL                                                    588
+*isa-set-I86                                                       12980
+*category-BINARY                                                    1768
+*category-COND_BR                                                   1180
+*category-DATAXFER                                                  3540
+*category-LOGICAL                                                    592
+*category-MISC                                                       588
+*category-POP                                                       2360
+*category-PUSH                                                      2360
+*category-RET                                                        592
+*category-SEMAPHORE                                                  588
+*ilen-1                                                             5308
+*ilen-2                                                             2956
+*ilen-3                                                             2360
+*ilen-4                                                             1180
+*ilen-5                                                              588
+*ilen-6                                                              588
+*ilen-7                                                              588
+*legacy-prefixes-0                                                 12980
+*legacy-prefixes-1                                                   588
+*legacy-prefixes-and-escapes-0                                     12392
+*legacy-prefixes-and-escapes-1                                       588
+*legacy-prefixes-and-escapes-2                                       588
+*lock_prefix                                                         588
+*loadop                                                             6492
+*one-memops                                                         7672
+*cond-branch-forward                                                1180
+*base_only                                                          5900
+*base_disp                                                          1772
+*scale_1                                                            8260
+*memdisp8                                                           2360
+ADD                                                                  592
+CMP                                                                  588
+INC                                                                  588
+JNZ                                                                 1180
+LEA                                                                  588
+MOV                                                                 3540
+POP                                                                 2360
+PUSH                                                                2360
+RET_NEAR                                                             592
+XADD_LOCK                                                            588
+XOR                                                                  592
+*total                                                             13568
+#
+# $dynamic-counts-for-function: CtfImmDispatchDefImeMessage  IMG: C:\Windows\SysWOW64\imm32.dll at [0x7753163c, 0x77531888)   2.117%
+#
+# TID 0
+#       opcode                 count
+#
+*stack-read                                                         1238
+*stack-write                                                        1110
+*mem-read-1                                                          459
+*mem-read-2                                                          153
+*mem-read-4                                                         5089
+*mem-write-1                                                         153
+*mem-write-4                                                         957
+*mem-read                                                           5701
+*mem-write                                                          1110
+*mem                                                                6798
+*isa-ext-BASE                                                      12596
+*isa-set-I186                                                        153
+*isa-set-I386                                                        306
+*isa-set-I86                                                       12137
+*category-BINARY                                                    2296
+*category-CALL                                                        25
+*category-COND_BR                                                   2627
+*category-CONVERT                                                    153
+*category-DATAXFER                                                  4463
+*category-LOGICAL                                                   1249
+*category-NOP                                                         60
+*category-POP                                                        625
+*category-PUSH                                                       626
+*category-RET                                                        307
+*category-SHIFT                                                      153
+*category-UNCOND_BR                                                   12
+*ilen-1                                                             1771
+*ilen-2                                                             3417
+*ilen-3                                                             3520
+*ilen-4                                                              459
+*ilen-5                                                              166
+*ilen-6                                                             3110
+*ilen-7                                                              153
+*nop-ilen-1                                                           60
+*legacy-prefixes-0                                                 11984
+*legacy-prefixes-1                                                   612
+*legacy-prefixes-and-escapes-0                                      9970
+*legacy-prefixes-and-escapes-1                                      2626
+*segment_prefix                                                      459
+*66_prefix                                                           153
+*loadop                                                             3418
+*one-memops                                                         6785
+*two-memops                                                           13
+*cond-branch-forward                                                2627
+*disp_only                                                           944
+*base_only                                                          1876
+*base_disp                                                          3978
+*scale_1                                                            6798
+*memdisp8                                                           3519
+*memdisp32                                                          1403
+*convert_i32_1                                                       153
+ADD                                                                  306
+CALL_NEAR                                                             25
+CDQ                                                                  153
+CMP                                                                 1378
+IMUL                                                                 153
+JB                                                                   612
+JMP                                                                   12
+JNB                                                                  306
+JNBE                                                                 459
+JNZ                                                                  637
+JZ                                                                   613
+MOV                                                                 4310
+MOVZX                                                                153
+NOP                                                                   60
+OR                                                                   306
+POP                                                                  625
+PUSH                                                                 626
+RET_NEAR                                                             307
+SBB                                                                  153
+SHR                                                                  153
+SUB                                                                  306
+TEST                                                                 484
+XOR                                                                  459
+*total                                                             12596
+#
+# $dynamic-counts-for-function: TF_InvalidAssemblyListCacheIfExist  IMG: C:\Windows\syswow64\MSCTF.dll at [0x77095d00, 0x77097be4)   1.975%
+#
+# TID 0
+#       opcode                 count
+#
+*stack-read                                                         3033
+*stack-write                                                        2751
+*mem-read-1                                                            2
+*mem-read-2                                                           13
+*mem-read-4                                                         4433
+*mem-write-2                                                          20
+*mem-write-4                                                        3635
+*mem-read                                                           4448
+*mem-write                                                          3655
+*mem                                                                7246
+*isa-ext-BASE                                                      11753
+*isa-set-I186                                                        252
+*isa-set-I386                                                        231
+*isa-set-I86                                                       11270
+*category-BINARY                                                    1045
+*category-CALL                                                       610
+*category-COND_BR                                                    899
+*category-CONVERT                                                     12
+*category-DATAXFER                                                  3728
+*category-LOGICAL                                                    918
+*category-MISC                                                       218
+*category-POP                                                       1248
+*category-PUSH                                                      2011
+*category-RET                                                        686
+*category-SETCC                                                       16
+*category-SHIFT                                                       21
+*category-STRINGOP                                                   199
+*category-UNCOND_BR                                                  142
+*ilen-1                                                             2869
+*ilen-2                                                             3787
+*ilen-3                                                             2718
+*ilen-4                                                              380
+*ilen-5                                                              854
+*ilen-6                                                             1121
+*ilen-7                                                               24
+*legacy-prefixes-0                                                 11519
+*legacy-prefixes-1                                                   234
+*legacy-prefixes-and-escapes-0                                     10835
+*legacy-prefixes-and-escapes-1                                       918
+*rep_prefix                                                          199
+*66_prefix                                                            35
+*sib                                                                  45
+*loadop                                                             4801
+*one-memops                                                         6487
+*two-memops                                                          759
+*cond-branch-forward                                                 888
+*cond-branch-backward                                                 11
+*disp_only                                                           190
+*base_only                                                          4913
+*base_disp                                                          2120
+*base_index                                                           23
+*scale_1                                                            7387
+*scale_4                                                              23
+*memdisp8                                                           2266
+*memdisp32                                                           194
+*convert_i32_1                                                        12
+ADD                                                                  115
+AND                                                                  272
+CALL_NEAR                                                            610
+CDQ                                                                   12
+CMP                                                                  443
+DEC                                                                   81
+DIV                                                                    9
+IMUL                                                                  10
+INC                                                                   78
+JB                                                                    12
+JL                                                                    29
+JLE                                                                   22
+JMP                                                                  142
+JNBE                                                                   8
+JNL                                                                   13
+JNLE                                                                   8
+JNZ                                                                  191
+JZ                                                                   616
+LEA                                                                  164
+LEAVE                                                                 54
+MOV                                                                 3724
+MOVZX                                                                  4
+NEG                                                                  129
+OR                                                                    18
+POP                                                                 1248
+PUSH                                                                2011
+REPE_CMPSD                                                           199
+RET_NEAR                                                             686
+SAR                                                                   12
+SBB                                                                  129
+SETNZ                                                                  9
+SETZ                                                                   7
+SHL                                                                    9
+SUB                                                                   51
+TEST                                                                 329
+XOR                                                                  299
+*total                                                             11753
+#
+# $dynamic-counts-for-function: ScriptApplyDigitSubstitution  IMG: C:\Windows\syswow64\USP10.dll at [0x76188a80, 0x761963b0)   1.885%
+#
+# TID 0
+#       opcode                 count
+#
+*stack-read                                                         1789
+*stack-write                                                        1394
+*mem-read-1                                                          145
+*mem-read-2                                                          390
+*mem-read-4                                                         2843
+*mem-write-1                                                          12
+*mem-write-2                                                          52
+*mem-write-4                                                        1638
+*mem-read                                                           3378
+*mem-write                                                          1702
+*mem                                                                5002
+*isa-ext-BASE                                                      11218
+*isa-set-I186                                                        407
+*isa-set-I386                                                        552
+*isa-set-I86                                                       10259
+*category-BINARY                                                    1643
+*category-CALL                                                       202
+*category-COND_BR                                                   1648
+*category-CONVERT                                                     24
+*category-DATAXFER                                                  4034
+*category-LOGICAL                                                   1229
+*category-MISC                                                       274
+*category-NOP                                                          4
+*category-POP                                                        434
+*category-PUSH                                                       858
+*category-RET                                                        182
+*category-SETCC                                                       49
+*category-SHIFT                                                      444
+*category-UNCOND_BR                                                  193
+*ilen-1                                                             1612
+*ilen-2                                                             3739
+*ilen-3                                                             3587
+*ilen-4                                                              642
+*ilen-5                                                              574
+*ilen-6                                                              810
+*ilen-7                                                              234
+*ilen-8                                                               12
+*ilen-11                                                               8
+*nop-ilen-1                                                            4
+*legacy-prefixes-0                                                 10866
+*legacy-prefixes-1                                                   352
+*legacy-prefixes-and-escapes-0                                     10076
+*legacy-prefixes-and-escapes-1                                      1142
+*66_prefix                                                           352
+*sib                                                                1043
+*loadop                                                             2342
+*one-memops                                                         4956
+*two-memops                                                           46
+*cond-branch-forward                                                1425
+*cond-branch-backward                                                223
+*disp_only                                                            71
+*index_disp                                                           84
+*base_only                                                          1886
+*base_disp                                                          2221
+*base_index                                                          652
+*base_index_disp                                                      88
+*scale_1                                                            4429
+*scale_2                                                             272
+*scale_4                                                             345
+*scale_8                                                             230
+*memdisp8                                                           2157
+*memdisp32                                                           511
+*convert_i32_1                                                        24
+ADD                                                                  251
+AND                                                                  461
+CALL_NEAR                                                            202
+CDQ                                                                   24
+CMP                                                                  937
+DEC                                                                   40
+IMUL                                                                  16
+INC                                                                  244
+JB                                                                    48
+JBE                                                                    4
+JL                                                                   253
+JLE                                                                   49
+JMP                                                                  193
+JNB                                                                   96
+JNBE                                                                  28
+JNL                                                                  163
+JNLE                                                                  21
+JNS                                                                  134
+JNZ                                                                  255
+JS                                                                     4
+JZ                                                                   593
+LEA                                                                  274
+MOV                                                                 3555
+MOVSX                                                                 40
+MOVZX                                                                439
+NEG                                                                    4
+NOP                                                                    4
+OR                                                                     9
+POP                                                                  434
+PUSH                                                                 858
+RET_NEAR                                                             182
+SAR                                                                  202
+SBB                                                                    4
+SETL                                                                  40
+SETNZ                                                                  8
+SETZ                                                                   1
+SHL                                                                   62
+SHR                                                                  180
+SUB                                                                  147
+TEST                                                                 585
+XOR                                                                  174
+*total                                                             11218
+#
+# $dynamic-counts-for-function: GetThreadDesktop  IMG: C:\Windows\syswow64\USER32.dll at [0x75c56c63, 0x75c56ffe)   1.824%
+#
+# TID 0
+#       opcode                 count
+#
+*stack-read                                                         1675
+*stack-write                                                        2778
+*mem-read-1                                                          279
+*mem-read-2                                                           92
+*mem-read-4                                                         3594
+*mem-write-1                                                          76
+*mem-write-4                                                        3059
+*mem-read                                                           3965
+*mem-write                                                          3135
+*mem                                                                6483
+*isa-ext-BASE                                                      10854
+*isa-set-I186                                                        369
+*isa-set-I386                                                        525
+*isa-set-I86                                                        9960
+*category-BINARY                                                    1583
+*category-CALL                                                       595
+*category-COND_BR                                                   1741
+*category-CONVERT                                                     76
+*category-DATAXFER                                                  2996
+*category-LOGICAL                                                   1104
+*category-MISC                                                       202
+*category-POP                                                        464
+*category-PUSH                                                      1374
+*category-RET                                                        211
+*category-SHIFT                                                       76
+*category-STRINGOP                                                   357
+*category-UNCOND_BR                                                   75
+*ilen-1                                                             1426
+*ilen-2                                                             3175
+*ilen-3                                                             3393
+*ilen-4                                                              168
+*ilen-5                                                              746
+*ilen-6                                                             1736
+*ilen-7                                                              210
+*legacy-prefixes-0                                                 10276
+*legacy-prefixes-1                                                   578
+*legacy-prefixes-and-escapes-0                                      9142
+*legacy-prefixes-and-escapes-1                                      1712
+*segment_prefix                                                      145
+*rep_prefix                                                          357
+*66_prefix                                                            76
+*sib                                                                  15
+*loadop                                                             3574
+*one-memops                                                         5866
+*two-memops                                                          617
+*cond-branch-forward                                                1725
+*cond-branch-backward                                                 16
+*disp_only                                                           492
+*base_only                                                          2622
+*base_disp                                                          3354
+*base_index_disp                                                      15
+*scale_1                                                            6668
+*memdisp8                                                           3277
+*memdisp32                                                           769
+*convert_i32_1                                                        76
+ADD                                                                  188
+AND                                                                   16
+CALL_NEAR                                                            595
+CDQ                                                                   76
+CMP                                                                  948
+IMUL                                                                  76
+INC                                                                  125
+JB                                                                   304
+JL                                                                    15
+JMP                                                                   75
+JNB                                                                  152
+JNBE                                                                 243
+JNLE                                                                   1
+JNZ                                                                  574
+JZ                                                                   452
+LEA                                                                  185
+LEAVE                                                                 17
+MOV                                                                 2904
+MOVZX                                                                 92
+OR                                                                   203
+POP                                                                  464
+PUSH                                                                1374
+REP_STOSD                                                            357
+RET_NEAR                                                             211
+SBB                                                                   76
+SHR                                                                   76
+SUB                                                                  170
+TEST                                                                 345
+XOR                                                                  540
+*total                                                             10854
+#
+# $dynamic-counts-for-function: RtlEnterCriticalSection  IMG: C:\Windows\SysWOW64\ntdll.dll at [0x779822f0, 0x7798232f)   1.811%
+#
+# TID 0
+#       opcode                 count
+#
+*mem-atomic                                                          515
+*stack-read                                                         2559
+*stack-write                                                        1545
+*mem-read-4                                                         4096
+*mem-write-4                                                        3082
+*mem-read                                                           4096
+*mem-write                                                          3082
+*mem                                                                6663
+*isa-ext-BASE                                                      10775
+*isa-set-I386                                                        515
+*isa-set-I86                                                       10260
+*category-BINARY                                                     515
+*category-BITBYTE                                                    515
+*category-COND_BR                                                    515
+*category-DATAXFER                                                  4615
+*category-LOGICAL                                                    511
+*category-MISC                                                       515
+*category-POP                                                       1533
+*category-PUSH                                                      1545
+*category-RET                                                        511
+*ilen-1                                                             3078
+*ilen-2                                                             2567
+*ilen-3                                                             3078
+*ilen-5                                                              515
+*ilen-6                                                             1026
+*ilen-7                                                              511
+*legacy-prefixes-0                                                  9749
+*legacy-prefixes-1                                                  1026
+*legacy-prefixes-and-escapes-0                                      9234
+*legacy-prefixes-and-escapes-1                                      1026
+*legacy-prefixes-and-escapes-2                                       515
+*segment_prefix                                                      511
+*lock_prefix                                                         515
+*loadop                                                             4104
+*one-memops                                                         6663
+*cond-branch-forward                                                 515
+*disp_only                                                           511
+*base_only                                                          4104
+*base_disp                                                          2048
+*scale_1                                                            7178
+*memdisp8                                                           2563
+*memdisp32                                                           511
+BTR_LOCK                                                             515
+JNB                                                                  515
+LEA                                                                  515
+MOV                                                                 4615
+POP                                                                 1533
+PUSH                                                                1545
+RET_NEAR                                                             511
+SUB                                                                  515
+XOR                                                                  511
+*total                                                             10775
+# END_PER_FUNCTION_STATS 
+# EMIT_STATIC_STATS 
+#
+# $static-counts
+#
+#       opcode                 count
+#
+*total                                                                 0
+
+# END_STATIC_STATS
+# EMIT_GLOBAL_DYNAMIC_STATS   EMIT# 1
+#
+# $global-dynamic-counts
+#
+#       opcode                 count
+#
+*mem-atomic                                                        14893
+*stack-read                                                       115802
+*stack-write                                                      117106
+*mem-read-1                                                         8283
+*mem-read-2                                                        13395
+*mem-read-4                                                       179818
+*mem-read-8                                                          123
+*mem-read-32                                                         288
+*mem-write-1                                                        3226
+*mem-write-2                                                        2687
+*mem-write-4                                                      137362
+*mem-write-8                                                         123
+*mem-write-16                                                        616
+*mem-write-32                                                        288
+*mem-read                                                         201907
+*mem-write                                                        144302
+*mem                                                              307602
+*isa-ext-BASE                                                     594127
+*isa-ext-SSE2                                                        632
+*isa-ext-X87                                                         365
+*isa-set-I186                                                      14218
+*isa-set-I386                                                      26071
+*isa-set-I486REAL                                                   1270
+*isa-set-I86                                                      552445
+*isa-set-PENTIUMREAL                                                 123
+*isa-set-SSE2                                                        632
+*isa-set-X87                                                         365
+*category-BINARY                                                   83346
+*category-BITBYTE                                                    598
+*category-CALL                                                     21143
+*category-COND_BR                                                  74607
+*category-CONVERT                                                    709
+*category-DATAXFER                                                176848
+*category-LOGICAL                                                  44153
+*category-MISC                                                     23126
+*category-NOP                                                        860
+*category-POP                                                      32460
+*category-PUSH                                                     60562
+*category-RET                                                      20922
+*category-ROTATE                                                    1470
+*category-SEMAPHORE                                                 1393
+*category-SETCC                                                      555
+*category-SHIFT                                                     6911
+*category-STRINGOP                                                  6769
+*category-UNCOND_BR                                                38327
+*category-X87_ALU                                                    365
+*ilen-1                                                           100907
+*ilen-2                                                           162668
+*ilen-3                                                           158269
+*ilen-4                                                            31075
+*ilen-5                                                            64376
+*ilen-6                                                            66260
+*ilen-7                                                            10419
+*ilen-8                                                              970
+*ilen-10                                                             171
+*ilen-11                                                               9
+*nop-ilen-1                                                          860
+*sse-packed                                                          632
+*legacy-prefixes-0                                                565975
+*legacy-prefixes-1                                                 28845
+*legacy-prefixes-2                                                   304
+*legacy-prefixes-and-escapes-0                                    513442
+*legacy-prefixes-and-escapes-1                                     78611
+*legacy-prefixes-and-escapes-2                                      3071
+*segment_prefix                                                     5135
+*lock_prefix                                                        1991
+*rep_prefix                                                         5807
+*repne_prefix                                                        304
+*66_prefix                                                         16216
+*sib                                                               30005
+*loadop                                                           168852
+*one-memops                                                       289762
+*two-memops                                                        17840
+*cond-branch-forward                                               59691
+*cond-branch-backward                                              14916
+*disp_only                                                         19141
+*index_disp                                                         1047
+*base_only                                                        167277
+*base_disp                                                        115615
+*base_index                                                         2849
+*base_index_disp                                                    1673
+*scale_1                                                          319422
+*scale_2                                                            3674
+*scale_4                                                            4035
+*scale_8                                                            1523
+*memdisp8                                                         117980
+*memdisp32                                                         37528
+*elements_i1_128                                                      16
+*convert_i32_1                                                       705
+*convert_i64_4                                                         4
+*dataxfer_i32_4                                                      616
+ADC                                                                 2921
+ADD                                                                13411
+AND                                                                 5981
+BTR_LOCK                                                             593
+BTS_LOCK                                                               5
+CALL_NEAR                                                          21143
+CDQ                                                                  705
+CMP                                                                44867
+CMPXCHG8B_LOCK                                                       123
+CMPXCHG_LOCK                                                         137
+CWDE                                                                   4
+DEC                                                                 2181
+DIV                                                                   38
+FCOM                                                                  27
+FCOMP                                                                 21
+FCOMPP                                                                14
+FDIV                                                                   6
+FILD                                                                  12
+FLD                                                                   94
+FLD1                                                                  31
+FNSTSW                                                                84
+FST                                                                   10
+FSTP                                                                  44
+FUCOMPP                                                               22
+IDIV                                                                   8
+IMUL                                                                1404
+INC                                                                 7606
+JB                                                                  8857
+JBE                                                                 3740
+JL                                                                  1207
+JLE                                                                  428
+JMP                                                                38084
+JMP_FAR                                                              243
+JNB                                                                 8824
+JNBE                                                                2468
+JNL                                                                 2070
+JNLE                                                                 611
+JNP                                                                   17
+JNS                                                                  169
+JNZ                                                                20893
+JP                                                                    50
+JS                                                                    33
+JZ                                                                 25240
+LEA                                                                21052
+LEAVE                                                               2074
+MOV                                                               143983
+MOVDQA                                                               616
+MOVSD                                                                476
+MOVSW                                                                113
+MOVSX                                                                134
+MOVZX                                                              18061
+MUL                                                                   19
+NEG                                                                 1387
+NOP                                                                  860
+NOT                                                                  723
+OR                                                                  3214
+POP                                                                32065
+POPAD                                                                288
+POPFD                                                                107
+PUSH                                                               60167
+PUSHAD                                                               288
+PUSHFD                                                               107
+PXOR                                                                  16
+REPE_CMPSB                                                            81
+REPE_CMPSD                                                           355
+REPNE_SCASW                                                          304
+REP_MOVSD                                                           2469
+REP_STOSB                                                           1284
+REP_STOSD                                                           1618
+RET_NEAR                                                           20922
+ROL                                                                 1468
+ROR                                                                    2
+SAR                                                                 2060
+SBB                                                                  830
+SETL                                                                  41
+SETLE                                                                 10
+SETNL                                                                 12
+SETNZ                                                                204
+SETZ                                                                 288
+SHL                                                                 2051
+SHLD                                                                 109
+SHR                                                                 2563
+SHRD                                                                 128
+STOSD                                                                 69
+SUB                                                                 8674
+TEST                                                               19074
+XADD_LOCK                                                           1133
+XCHG                                                               14054
+XOR                                                                15145
+*total                                                            595124
+
+# END_GLOBAL_DYNAMIC_STATS
